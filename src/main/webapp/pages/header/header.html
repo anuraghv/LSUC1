@@ -1,0 +1,33 @@
+<wm-partial data-ng-controller="headerPageController" name="header" type="header">
+    <wm-layoutgrid name="headerlayout">
+        <wm-gridrow name="headerrow">
+            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="6" padding="unset unset unset 1em">
+                <wm-picture picturesource="resources/images/imagelists/logo.png" name="AppLogo" margin="1em unset unset unset" height="40" class="app-logo"></wm-picture>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                <wm-nav type="pills" name="nav1" class="app-header-actions pull-right">
+                    <wm-nav-item name="nav_item4_1">
+                        <wm-anchor name="searchLink" iconclass="wi wi-search fa-2x" class="app-header-action" caption="" on-click="Variables.goToPage_Search.invoke()"></wm-anchor>
+                    </wm-nav-item>
+                    <wm-nav-item name="nav_item5">
+                        <wm-popover popoverwidth="240" popoverheight="360" name="alertsInfo" iconclass="wi wi-bell fa-2x" caption="" class="app-header-action" badgevalue="bind:Variables.getPendingApprovalsCount.dataSet.value" content="alerts" accessroles="supervisor"></wm-popover>
+                    </wm-nav-item>
+                    <wm-nav-item name="nav_item2">
+                        <wm-popover popoverwidth="240" name="settings" iconclass="wi wi-gear fa-2x" caption="" class="app-header-action" content="settings"></wm-popover>
+                    </wm-nav-item>
+                    <wm-nav-item name="nav_item4" class="user-actions">
+                        <wm-menu caption=" " autoclose="outsideClick" name="userActions" iconclass="" type="anchor" menuclass="app-header-action user-badge" menuposition="down,left" dataset="bind:Variables.userProfileActions.dataSet">
+                            <wm-container class="media-left hidden-xs" name="container1">
+                                <wm-label caption="bind:Variables.loggedInUser.dataSet.name" class="app-username small bold" name="username"></wm-label>
+                                <wm-label caption="bind:Variables.loggedInUser.dataSet.roles[0]" class="app-userrole p small text-uppercase" name="userrole"></wm-label>
+                            </wm-container>
+                            <wm-container class="media-right" name="container2">
+                                <wm-picture name="picture2" pictureplaceholder="resources/images/imagelists/user.png" width="30" height="30" class="user-pic" picturesource="bind:&quot;resources/images/user/&quot;+Variables.loggedInUser.dataSet.name+&quot;.png&quot;" shape="circle"></wm-picture>
+                            </wm-container>
+                        </wm-menu>
+                    </wm-nav-item>
+                </wm-nav>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

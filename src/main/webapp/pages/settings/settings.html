@@ -1,0 +1,24 @@
+<wm-partial data-ng-controller="settingsPageController" type="popover" name="partial1">
+    <wm-container name="container1" padding="1em 1em unset 1em">
+        <wm-layoutgrid name="layoutgrid1">
+            <wm-gridrow name="gridrow1">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn1" padding="1em unset 2em unset">
+                    <wm-label padding="unset 0.5em" name="label1" caption="Text Size"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn2">
+                    <wm-switch datavalue="bind:Variables.userPreference.dataSet.textsize" name="textSizeSwitch" dataset="S, M, L" class="btn-group-sm" on-change="textSizeSwitchChange($event, $scope, newVal, oldVal)"></wm-switch>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow2">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn3" padding="1em unset 2em unset">
+                    <wm-label padding="unset 0.5em" name="label2" caption="Change Contrast"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                    <wm-composite name="composite1">
+                        <wm-switch datavalue="bind:Variables.userPreference.dataSet.contrast" name="contrastSwitch" dataset="Light, Dark" class="btn-group-sm" on-change="contrastSwitchChange($event, $scope, newVal, oldVal)"></wm-switch>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-container>
+</wm-partial>

@@ -1,0 +1,41 @@
+<wm-page data-ng-controller="ReportPageController" pagetitle="Report" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="reportsLeftNav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" padding="0px 0px unset 0px">
+            <wm-layoutgrid name="layoutgrid12">
+                <wm-gridrow name="gridrow2" class="bg-primary" padding="1em">
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn4_1">
+                        <wm-label padding="unset 0.5em" name="label3" caption="From Date"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5">
+                        <wm-date name="fromDate"></wm-date>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn5_1">
+                        <wm-label padding="unset 0.5em" name="label4" caption="To Date"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn22_1">
+                        <wm-date name="toDate"></wm-date>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4" horizontalalign="left">
+                        <wm-button class="btn-secondary" caption="View Report" type="button" margin="unset 0.5em" name="getExpirationReportBtn" on-click="Variables.LSUCExecuteExpirationStatus.invoke()"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-grid title="" dataset="bind:Variables.LSUCExecuteExpirationStatus.dataSet" navigation="Basic" name="expirationReportGrid" exportformat="EXCEL,CSV" navigationalign="right" exportdatasize="500">
+                <wm-grid-column binding="licenseDate" caption="License Date" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="address" caption="Address" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="name" caption="Name" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="licenseeNumber" caption="Licensee Number" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="effectiveToDate" caption="Effective To Date" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="licenseType" caption="License Type" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="class_" caption="Class" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="practiceGroup" caption="Practice Group" type="string" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="effectiveFromDate" caption="Effective From Date" type="string" datepattern="dd MMM yyyy" formatpattern="toDate" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+            </wm-grid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

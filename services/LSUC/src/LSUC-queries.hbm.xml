@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="updateStatus">
+        <![CDATA[
+        update RMS.LICENSEECLASSPRACTICEGROUP_APPROVALS set STATUS=:status where PK=:pk
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    <query-param name="pk" type="java.lang.String"/>
+    </sql-query>
+
+    <query name="approveEditRecord">
+        <![CDATA[
+        update Licenseeclasspracticegroup a
+
+set a.effectiveFromDate = (select b.newEffectiveFromDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.effectiveToDate = (select b.newEffectiveToDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.isPrimary = (select b.newIsPrimary from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.classPracticeGroupFk  = (select b.newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)
+
+where a.pk=(select b.licenseeclasspracticegroupPk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)
+        ]]>
+    <query-param name="approvalPk" type="java.lang.Integer"/>
+    </query>
+
+    <query name="approveEditRecord__count">
+        <![CDATA[
+        select count(*)  from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.effectiveToDate = (select b.newEffectiveToDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.isPrimary = (select b.newIsPrimary from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),
+
+a.classPracticeGroupFk  = (select b.newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)
+
+where a.pk=(select b.licenseeclasspracticegroupPk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)
+        ]]>
+    <query-param name="approvalPk" type="java.lang.Integer"/>
+    </query>
+
+    <query name="approvedNewRecord">
+        <![CDATA[
+        INSERT INTO Licenseeclasspracticegroup (licenseeFk,isPrimary,effectiveFromDate,effectiveToDate,classPracticeGroupFk)
+
+select licenseeFk,newIsPrimary,newEffectiveFromDate,newEffectiveToDate,newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals where pk =:primaryKey
+        ]]>
+    <query-param name="primaryKey" type="java.lang.Integer"/>
+    </query>
+
+    <query name="getStatusChangeDetails">
+        <![CDATA[
+        select classpraticegroup.classEntity.shortNameEnglish as Type,effectiveFromDate as EffectiveDate,effectiveToDate as EffectiveTo,CONCAT(classpraticegroup.practicegroup.code,' - ',classpraticegroup.practicegroup.shortNameEnglish) as PracticeGroup,isPrimary as isPrimary,revinfo.revtstmp as revtstmp from LicenseeclasspracticegroupAud where (:personID is null or licensee.personFk=:personID )
+        ]]>
+    <query-param name="personID" type="java.lang.Integer"/>
+    </query>
+
+    <query name="getStatusChangeDetails__count">
+        <![CDATA[
+        select count(*)  from LicenseeclasspracticegroupAud where (:personID is null or licensee.personFk=:personID )
+        ]]>
+    <query-param name="personID" type="java.lang.Integer"/>
+    </query>
+
+    <sql-query name="expirationStatus">
+        <![CDATA[
+        select DISTINCT l.LICENSEE_NUMBER,
+    p.FIRST_NAME||' '||p.LAST_NAME,
+    pa.ADDRESS_LINE_1||' '||pa.ADDRESS_LINE_2||' '||pa.CITY,
+    lt.SHORT_NAME_ENGLISH,l.LICENSE_DATE,
+    c.SHORT_NAME_ENGLISH as Class,
+    pg.SHORT_NAME_ENGLISH as PracticeGroup ,
+    lcpg.EFFECTIVE_FROM_DATE ,
+    lcpg.EFFECTIVE_TO_DATE
+from RMS.PERSON p,
+    RMS.PERSONADDRESS pa,
+    RMS.LICENSEE l,
+    RMS.LICENCETYPE lt,
+    RMS.LICENSEECLASSPRACTICEGROUP lcpg,
+    RMS.CLASSPRATICEGROUP cpg ,
+    RMS.CLASS c,
+    RMS.PRACTICEGROUP pg 
+where p.PK = pa.PERSON_FK and 
+    l.PERSON_FK = p.PK and
+    l.LICENCE_TYPE_FK = lt.PK and 
+    lcpg.LICENSEE_FK = l.PK and 
+    lcpg.CLASS_PRACTICE_GROUP_FK = cpg.PK and 
+    cpg.CLASS_FK = c.PK and 
+    cpg.PRACTICE_GROUP_FK = pg.PK
+        ]]>
+    </sql-query>
+
+    <sql-query name="expirationStatus__count">
+        <![CDATA[
+        select count(*) from (select DISTINCT l.LICENSEE_NUMBER,
+    p.FIRST_NAME||' '||p.LAST_NAME,
+    pa.ADDRESS_LINE_1||' '||pa.ADDRESS_LINE_2||' '||pa.CITY,
+    lt.SHORT_NAME_ENGLISH,l.LICENSE_DATE,
+    c.SHORT_NAME_ENGLISH as Class,
+    pg.SHORT_NAME_ENGLISH as PracticeGroup ,
+    lcpg.EFFECTIVE_FROM_DATE ,
+    lcpg.EFFECTIVE_TO_DATE
+from RMS.PERSON p,
+    RMS.PERSONADDRESS pa,
+    RMS.LICENSEE l,
+    RMS.LICENCETYPE lt,
+    RMS.LICENSEECLASSPRACTICEGROUP lcpg,
+    RMS.CLASSPRATICEGROUP cpg ,
+    RMS.CLASS c,
+    RMS.PRACTICEGROUP pg 
+where p.PK = pa.PERSON_FK and 
+    l.PERSON_FK = p.PK and
+    l.LICENCE_TYPE_FK = lt.PK and 
+    lcpg.LICENSEE_FK = l.PK and 
+    lcpg.CLASS_PRACTICE_GROUP_FK = cpg.PK and 
+    cpg.CLASS_FK = c.PK and 
+    cpg.PRACTICE_GROUP_FK = pg.PK) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

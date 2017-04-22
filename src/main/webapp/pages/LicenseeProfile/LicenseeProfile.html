@@ -1,0 +1,115 @@
+<wm-page data-ng-controller="LicenseeProfilePageController" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-label padding="unset 0.5em" name="label16" class="h2" caption="Personal Details"></wm-label>
+            <wm-layoutgrid name="layoutgrid21">
+                <wm-gridrow name="gridrow39_3">
+                    <wm-gridcolumn columnwidth="7" name="gridcolumn67_2" padding="unset 1em">
+                        <wm-liveform novalidate="false" errormessage="" title="BASIC INFORMATION" iconclass="wi wi-person" defaultmode="View" dataset="bind:Variables.LSUCPersonData.dataSet" captionalign="left" captionposition="top" name="editPersonForm" formdata="bind:Variables.LSUCPersonData.firstRecord"
+                        on-success="Widgets.editPersonForm.cancel()">
+                            <wm-container name="container1_2" horizontalalign="right" margin="-3.5em unset unset unset" show="bind: !Widgets.editPersonForm.isUpdateMode">
+                                <wm-button type="button" margin="unset 0.5em" name="editPersonBtn" iconclass="wi wi-mode-edit fa-2x" caption="Edit" class="btn-link" on-click="editPersonBtnClick($event, $scope)"></wm-button>
+                            </wm-container>
+                            <wm-layoutgrid columns="3" name="layoutgrid2">
+                                <wm-gridrow name="gridrow2">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                                        <wm-form-field name="firstName" displayname="First Name" show="true" primary-key="false" generator="assigned" key="firstName" type="string" readonly="false" required="true" widget="text" maxchars="100" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                                        <wm-form-field name="middleNames" displayname="Middle Name" show="true" primary-key="false" generator="assigned" key="middleNames" type="string" readonly="false" required="false" widget="text" maxchars="100" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                                        <wm-form-field name="lastName" displayname="Last Name" show="true" primary-key="false" generator="assigned" key="lastName" type="string" readonly="false" required="true" widget="text" maxchars="100" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                                        <wm-form-field name="prefix" displayname="Prefix" show="true" primary-key="false" generator="assigned" key="prefix" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                        displayexpression="shortNameEnglish"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                                        <wm-form-field name="suffix" displayname="Suffix" show="true" primary-key="false" generator="assigned" key="suffix" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                        displayexpression="shortNameEnglish"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                                        <wm-form-field name="gender" displayname="Gender" show="true" primary-key="false" generator="assigned" key="gender" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                                        displayexpression="shortNameEnglish"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow1">
+                                    <wm-gridcolumn name="gridcolumn2" columnwidth="4">
+                                        <wm-form-field name="birthDate" displayname="Birth Date" show="true" primary-key="false" generator="assigned" key="birthDate" type="date" readonly="false" required="true" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"
+                                        datepattern="dd MMM yyyy"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn name="gridcolumn3" columnwidth="4">
+                                        <wm-form-field name="commonlyReferredToName" displayname="Preferred Name" show="true" primary-key="false" generator="assigned" key="commonlyReferredToName" type="string" readonly="false" required="false" widget="text"
+                                        maxchars="100" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn name="gridcolumn4" columnwidth="4">
+                                        <wm-form-field name="mailingName" displayname="Mailing Name" show="true" primary-key="false" generator="assigned" key="mailingName" type="string" readonly="false" required="false" widget="text" maxchars="100" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                        <wm-grid editmode="inline" title="Other Names" dataset="bind:Variables.LSUCPersonothernameData.dataSet" navigation="None" name="otherNamesDatatable" gridclass="table-striped" class="panel-default" iconclass="wi wi-tag">
+                            <wm-grid-column binding="person.pk" caption="Person Pk" type="integer" primary-key="true" generator="identity" edit-widget-type="text" defaultvalue="bind:pageParams.id" show="false" related-entity-name="Person" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="othernametype.pk" caption="Type" type="integer" widget-type="label" width="40%" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish"
+                            show="true" related-entity-name="Othernametype" readonly="false">
+                                <wm-label caption="{{row.othernametype.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+                            </wm-grid-column>
+                            <wm-grid-column binding="name" caption="Name" type="string" width="40%" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Name" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Name" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-grid editmode="inline" title="Names (Other Languages)" dataset="bind:Variables.LSUCPersonnameotherlanguageData.dataSet" navigation="None" name="nameslanguagegrid" class="panel-default" gridclass="table-striped" iconclass="wi wi-tag">
+                            <wm-grid-column binding="person.pk" caption="Person Pk" type="integer" primary-key="true" generator="identity" edit-widget-type="text" defaultvalue="bind:pageParams.id" show="false" related-entity-name="Person" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="language.pk" caption="Language" type="integer" widget-type="label" width="40%" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish"
+                            show="true" related-entity-name="Language" readonly="false">
+                                <wm-label caption="{{row.language.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+                            </wm-grid-column>
+                            <wm-grid-column binding="name" caption="Name" type="string" width="40%" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Name" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Name" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-container content="Contacts" name="phoneContainer">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-container content="Addresses" name="container3">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn68" padding="unset 1em">
+                        <wm-container content="Role" name="container4">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-container iconclass="wi wi-building" autoclose="outsideClick" name="panel3_1" content="BusinessRelationship" title="Business Relationship" margin="unset unset 1em unset">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-container content="PersonalRelationShip" name="container6">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-container iconclass="" autoclose="outsideClick" name="panel7" title="" content="Language">
+                            <wm-param name="id" value="bind:pageParams.id" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-container collapsible="false" showheader="true" name="panel3" title="Mailing Label" iconclass="wi wi-home" content="MailingLabel"></wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -1,0 +1,279 @@
+{
+  "username" : "db2admin1",
+  "password" : "7b6a43524a2429176262472d4d5278700d662158",
+  "url" : "jdbc:db2://52.91.14.176:50004/LSUC",
+  "driverClass" : "com.ibm.db2.jcc.DB2Driver",
+  "dialect" : "org.hibernate.dialect.DB2Dialect",
+  "serviceId" : "LSUC",
+  "packageName" : "com.lsuc.lsuc",
+  "dbType" : "DB2",
+  "host" : "52.91.14.176",
+  "dbName" : "LSUC",
+  "port" : "50004",
+  "schemaName" : "RMS",
+  "tableFilter" : [ {
+    "table" : "ADDRESSTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "ADMISSIONROUTE",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESS",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSADDRESS",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSBUSINESS",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSEMAILCONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSLEGALTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSPERSON",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSPERSONRELATIONSHIP",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSPERSONRELATIONSHIPTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSPHONECONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSRELATIONSHIPTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSSOCIALMEDIACONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSSTATUS",
+    "schema" : "RMS"
+  }, {
+    "table" : "BUSINESSTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "CATEGORY",
+    "schema" : "RMS"
+  }, {
+    "table" : "CITIZENSHIP",
+    "schema" : "RMS"
+  }, {
+    "table" : "CLASS",
+    "schema" : "RMS"
+  }, {
+    "table" : "CLASSPRATICEGROUP",
+    "schema" : "RMS"
+  }, {
+    "table" : "COMMUNICATIONCHANNEL",
+    "schema" : "RMS"
+  }, {
+    "table" : "COUNTRY",
+    "schema" : "RMS"
+  }, {
+    "table" : "EMAILPURPOSE",
+    "schema" : "RMS"
+  }, {
+    "table" : "FEECATEGORY",
+    "schema" : "RMS"
+  }, {
+    "table" : "GENDER",
+    "schema" : "RMS"
+  }, {
+    "table" : "GEOGRAPHICAREA",
+    "schema" : "RMS"
+  }, {
+    "table" : "INSURANCECOVERAGETYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "INSURANCEPOLICYSTATUS",
+    "schema" : "RMS"
+  }, {
+    "table" : "LANGUAGE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LANGUAGEPURPOSE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LAWYER",
+    "schema" : "RMS"
+  }, {
+    "table" : "LEGACYCLASSSTATUS",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENCETYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEE_AUD",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEECLASSPRACTICEGROUP",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEECLASSPRACTICEGROUP_APPROVALS",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEECLASSPRACTICEGROUP_AUD",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEINSURANCE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEINSURANCEPOLICY",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEPERSONLANGUAGEPURPOSE",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEPHOTOIDCARD",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEPHOTOIDSTATUS",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEPRACTICEINELIGIBILITYREASON",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEEPRACTICEINELIGIBILITYSUBREASON",
+    "schema" : "RMS"
+  }, {
+    "table" : "LICENSEETYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "MAILINGLABEL",
+    "schema" : "RMS"
+  }, {
+    "table" : "ORGANIZATIONALUNIT",
+    "schema" : "RMS"
+  }, {
+    "table" : "ORGANIZATIONALUNITADDRESS",
+    "schema" : "RMS"
+  }, {
+    "table" : "ORGANIZATIONALUNITTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "OTHERNAMETYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PARALEGAL",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSON",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSON_AUD",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONADDRESS",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONADDRESS_AUD",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONEMAILCONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONLANGUAGE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONLANGUAGECOMMUNICATIONCHANNEL",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONNAMEOTHERLANGUAGE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONOTHERNAME",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONPERSON",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONPHONECONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONRELATIONSHIPTYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONROLE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PERSONSOCIALMEDIACONTACT",
+    "schema" : "RMS"
+  }, {
+    "table" : "PHONEPURPOSE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PHONETYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "PRACTICEELIGIBILITY",
+    "schema" : "RMS"
+  }, {
+    "table" : "PRACTICEGROUP",
+    "schema" : "RMS"
+  }, {
+    "table" : "PRACTICEINELGIBILITYREASON",
+    "schema" : "RMS"
+  }, {
+    "table" : "PRACTICEINELGIBILITYSUBREASON",
+    "schema" : "RMS"
+  }, {
+    "table" : "PREFIX",
+    "schema" : "RMS"
+  }, {
+    "table" : "PROFICIENCYLEVEL",
+    "schema" : "RMS"
+  }, {
+    "table" : "PROVINCE",
+    "schema" : "RMS"
+  }, {
+    "table" : "REGION",
+    "schema" : "RMS"
+  }, {
+    "table" : "REVINFO",
+    "schema" : "RMS"
+  }, {
+    "table" : "ROLE",
+    "schema" : "RMS"
+  }, {
+    "table" : "SOCIALMEDIAPURPOSE",
+    "schema" : "RMS"
+  }, {
+    "table" : "SOCIALMEDIATYPE",
+    "schema" : "RMS"
+  }, {
+    "table" : "SUFFIX",
+    "schema" : "RMS"
+  }, {
+    "table" : "USER",
+    "schema" : "RMS"
+  }, {
+    "table" : "USERPREFERENCE",
+    "schema" : "RMS"
+  }, {
+    "table" : "USERPREFERENCETYPE",
+    "schema" : "RMS"
+  } ],
+  "schemaFilter" : [ "RMS" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : true
+}

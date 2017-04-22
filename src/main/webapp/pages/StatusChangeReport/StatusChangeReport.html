@@ -1,0 +1,30 @@
+<wm-page data-ng-controller="StatusChangeReportPageController" pagetitle="Status Change Report" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="reportsLeftNav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" padding="0px 0px unset 0px">
+            <wm-layoutgrid name="layoutgrid12">
+                <wm-gridrow name="gridrow2" class="bg-primary" padding="1em">
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn4_1">
+                        <wm-label padding="unset 0.5em" name="label3" caption="From Date"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5">
+                        <wm-date name="fromDate"></wm-date>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn5_1">
+                        <wm-label padding="unset 0.5em" name="label4" caption="To Date"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn22_1">
+                        <wm-date name="toDate"></wm-date>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4" horizontalalign="left">
+                        <wm-button class="btn-secondary" caption="View Report" type="button" margin="unset 0.5em" name="button1"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

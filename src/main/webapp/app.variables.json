@@ -1,0 +1,1030 @@
+{
+  "appNotification" : {
+    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "name" : "appNotification",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "dataViews" : {
+    "_id" : "wm-dataViews-wm.Variable-1492591273557",
+    "name" : "dataViews",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "id" : "grid",
+      "label" : "Grid",
+      "icon" : "fa fa-th-large fa-lg"
+    }, {
+      "id" : "list",
+      "label" : "List",
+      "icon" : "fa fa-th-list fa-lg"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "goToPage_AddBusiness" : {
+    "_id" : "wm-goToPage_AddBusiness-wm.NavigationVariable-1491988702597",
+    "name" : "goToPage_AddBusiness",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddBusiness",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_AddLicensee" : {
+    "_id" : "wm-goToPage_AddLicensee-wm.NavigationVariable-1491544442176",
+    "name" : "goToPage_AddLicensee",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddLicensee",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Approvals" : {
+    "_id" : "wm-goToPage_Approvals-wm.NavigationVariable-1492603476563",
+    "name" : "goToPage_Approvals",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Approvals",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "Approvals",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:pageParams.id"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_BusinessList" : {
+    "_id" : "wm-goToPage_BusinessList-wm.NavigationVariable-1491301986270",
+    "name" : "goToPage_BusinessList",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "BusinessList",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Dashboard" : {
+    "_id" : "wm-goToPage_Dashboard-wm.NavigationVariable-1491300371736",
+    "name" : "goToPage_Dashboard",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Dashboard",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Licensee" : {
+    "_id" : "wm-goToPage_Licensee-wm.NavigationVariable-1491300275196",
+    "name" : "goToPage_Licensee",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Licensee",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "Licensee",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:pageParams.id"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_LicenseeList" : {
+    "_id" : "wm-goToPage_LicenseeList-wm.NavigationVariable-1491301897159",
+    "name" : "goToPage_LicenseeList",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "LicenseeList",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_LicenseeProfile" : {
+    "_id" : "wm-goToPage_LicenseeProfile-wm.NavigationVariable-1491979523640",
+    "name" : "goToPage_LicenseeProfile",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "LicenseeProfile",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "LicenseeProfile",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:pageParams.id"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Main" : {
+    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "name" : "goToPage_Main",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "operation" : "gotoPage",
+    "pageName" : "Main"
+  },
+  "goToPage_Person" : {
+    "_id" : "wm-goToPage_Person-wm.NavigationVariable-1491301263640",
+    "name" : "goToPage_Person",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Person",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "Person",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:Widgets.personGrid.selecteditem.pk"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_PersonHistory" : {
+    "_id" : "wm-goToPage_PersonHistory-wm.NavigationVariable-1491981181989",
+    "name" : "goToPage_PersonHistory",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "PersonHistory",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "PersonHistory",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:pageParams.id"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Persons" : {
+    "_id" : "wm-goToPage_Persons-wm.NavigationVariable-1491545633866",
+    "name" : "goToPage_Persons",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Persons",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Register" : {
+    "_id" : "wm-goToPage_Register-wm.NavigationVariable-1491300322537",
+    "name" : "goToPage_Register",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Register",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Report" : {
+    "_id" : "wm-goToPage_Report-wm.NavigationVariable-1492576205347",
+    "name" : "goToPage_Report",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Report",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Search" : {
+    "_id" : "wm-goToPage_Search-wm.NavigationVariable-1492072253333",
+    "name" : "goToPage_Search",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Search",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "dataSet" : [ {
+      "type" : "string",
+      "target" : "q",
+      "value" : "bind:Widgets.searchtext.datavalue"
+    } ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_StatusChangeReport" : {
+    "_id" : "wm-goToPage_StatusChangeReport-wm.NavigationVariable-1492583489598",
+    "name" : "goToPage_StatusChangeReport",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "StatusChangeReport",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_test" : {
+    "_id" : "wm-goToPage_test-wm.NavigationVariable-1491538562284",
+    "name" : "goToPage_test",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "test",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_User" : {
+    "_id" : "wm-goToPage_User-wm.NavigationVariable-1491540836475",
+    "name" : "goToPage_User",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "User",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "loggedInUser" : {
+    "_id" : "wm-loggedInUser-wm.Variable-1491557756356",
+    "name" : "loggedInUser",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "",
+      "id" : "",
+      "tenantId" : "",
+      "isAuthenticated" : false,
+      "isSecurityEnabled" : true,
+      "roles" : [ ]
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "loginVariable" : {
+    "_id" : "wm-loginVariable-wm.LoginVariable-1491557756355",
+    "name" : "loginVariable",
+    "owner" : "App",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ {
+      "target" : "username",
+      "value" : "bind:Widgets.usernametext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "password",
+      "value" : "bind:Widgets.passwordtext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "rememberme",
+      "value" : "bind:Widgets.remembermecheck.datavalue",
+      "type" : "boolean"
+    } ],
+    "dataSet" : {
+      "username" : "",
+      "password" : "",
+      "rememberme" : false
+    },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "onError" : "loginVariableonError($event, $s)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "useDefaultSuccessHandler" : true
+  },
+  "logoutVariable" : {
+    "_id" : "wm-logoutVariable-wm.LogoutVariable-1491557756355",
+    "name" : "logoutVariable",
+    "owner" : "App",
+    "category" : "wm.LogoutVariable",
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "redirectTo" : "Login",
+    "useDefaultSuccessHandler" : true
+  },
+  "LSUCPersonData" : {
+    "_id" : "wm-LSUCPersonData-wm.LiveVariable-1491470390851",
+    "name" : "LSUCPersonData",
+    "owner" : "App",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "pk",
+      "value" : "bind:pageParams.id",
+      "type" : "number"
+    } ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Person",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onResult" : "LSUCPersonDataonResult($event, $scope)",
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "LSUC",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "orderBy" : "pk asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "gender",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "GENDER_FK",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "GENDER",
+        "relatedEntityName" : "Gender",
+        "relatedColumnName" : "genderFk",
+        "relatedFieldName" : "gender.pk",
+        "isList" : false,
+        "targetTable" : "GENDER",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "pk",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "PK",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "code",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "CODE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 10,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isActive",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_ACTIVE",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isDefault",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_DEFAULT",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "displaySequenceEnglish",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "displaySequenceFrench",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "prefix",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "PREFIX_FK",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "PREFIX",
+        "relatedEntityName" : "Prefix",
+        "relatedColumnName" : "prefixFk",
+        "relatedFieldName" : "prefix.pk",
+        "isList" : false,
+        "targetTable" : "PREFIX",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "pk",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "PK",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "code",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "CODE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 10,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isActive",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_ACTIVE",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isDefault",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_DEFAULT",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "displaySequenceEnglish",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "displaySequenceFrench",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "suffix",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "SUFFIX_FK",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "SUFFIX",
+        "relatedEntityName" : "Suffix",
+        "relatedColumnName" : "suffixFk",
+        "relatedFieldName" : "suffix.pk",
+        "isList" : false,
+        "targetTable" : "SUFFIX",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "pk",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "PK",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "code",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "CODE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 10,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "shortNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "SHORT_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameEnglish",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "longNameFrench",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "LONG_NAME_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1000,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isActive",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_ACTIVE",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "isDefault",
+          "type" : "character",
+          "fullyQualifiedType" : "character",
+          "columnName" : "IS_DEFAULT",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 1,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 2
+        }, {
+          "fieldName" : "displaySequenceEnglish",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_ENGLISH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "displaySequenceFrench",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "DISPLAY_SEQUENCE_FRENCH",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "pk",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "PK",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "firstName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "FIRST_NAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 100,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "lastName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "LAST_NAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 100,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "middleNames",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "MIDDLE_NAMES",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 100,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "commonlyReferredToName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "COMMONLY_REFERRED_TO_NAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 100,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "mailingName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "MAILING_NAME_",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 100,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      }, {
+        "fieldName" : "birthDate",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "BIRTH_DATE",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 2
+      } ],
+      "entityName" : "Person",
+      "fullyQualifiedName" : "com.lsuc.lsuc.Person",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "pk" ]
+    },
+    "isDefault" : true,
+    "bindCount" : 12,
+    "tableName" : "PERSON",
+    "tableType" : "TABLE",
+    "properties" : [ "gender", "prefix", "suffix" ],
+    "relatedTables" : [ {
+      "columnName" : "gender",
+      "relationName" : "gender",
+      "type" : "Gender",
+      "watchOn" : "LSUCGenderData",
+      "package" : "com.lsuc.lsuc.Person"
+    }, {
+      "columnName" : "prefix",
+      "relationName" : "prefix",
+      "type" : "Prefix",
+      "watchOn" : "LSUCPrefixData",
+      "package" : "com.lsuc.lsuc.Person"
+    }, {
+      "columnName" : "suffix",
+      "relationName" : "suffix",
+      "type" : "Suffix",
+      "watchOn" : "LSUCSuffixData",
+      "package" : "com.lsuc.lsuc.Person"
+    } ],
+    "filterFields" : { },
+    "package" : "com.lsuc.lsuc.Person"
+  },
+  "NewPerson" : {
+    "_id" : "wm-NewPerson-wm.Variable-1492687814985",
+    "name" : "NewPerson",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "PersonHistory" : {
+    "_id" : "wm-PersonHistory-wm.Variable-1492755372975",
+    "name" : "PersonHistory",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "type" : "",
+      "entity" : "",
+      "newPropertyValues" : [ {
+        "types" : "",
+        "value" : ""
+      } ],
+      "oldPropertyValues" : [ {
+        "types" : "",
+        "value" : ""
+      } ],
+      "changedby" : "",
+      "timestamp" : "",
+      "icon" : ""
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "sitemap" : {
+    "_id" : "wm-sitemap-wm.Variable-1492681085957",
+    "name" : "sitemap",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "label" : "Home",
+      "icon" : "wi wi-home",
+      "link" : "#/Main",
+      "id" : "Main",
+      "children" : [ {
+        "label" : "Licensees",
+        "link" : "#/LicenseeList",
+        "id" : "LicenseeList",
+        "children" : [ {
+          "label" : "License Details",
+          "link" : "#/Licensee",
+          "id" : "Licensee"
+        }, {
+          "label" : "Personal Details",
+          "id" : "LicenseeProfile",
+          "link" : "#/LicenseeProfile"
+        }, {
+          "label" : "History",
+          "id" : "PersonHistory",
+          "link" : "#/PersonHistory"
+        }, {
+          "label" : "Approvals",
+          "id" : "Approvals",
+          "link" : "#/PersonHistory"
+        }, {
+          "label" : "Add Licensee",
+          "id" : "AddLicensee",
+          "link" : "#/AddLicensee"
+        } ]
+      }, {
+        "label" : "Business List",
+        "link" : "#/BusinessList",
+        "id" : "BusinessList",
+        "children" : [ {
+          "label" : "View Business",
+          "link" : "#/Business",
+          "id" : "Business"
+        }, {
+          "label" : "Add Business",
+          "id" : "AddBusiness",
+          "link" : "#/AddBusiness"
+        } ]
+      }, {
+        "label" : "Report",
+        "link" : "#/Report",
+        "id" : "Report",
+        "children" : [ {
+          "label" : "License Change",
+          "link" : "/StatusChangeReport",
+          "id" : "StatusChangeReport"
+        } ]
+      } ]
+    },
+    "type" : "entry",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "userPreference" : {
+    "_id" : "wm-userPreferece-wm.Variable-1492145735419",
+    "name" : "userPreference",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "textsize" : "S",
+      "contrast" : "Light"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}

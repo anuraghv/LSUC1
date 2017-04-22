@@ -1,0 +1,72 @@
+<wm-page data-ng-controller="PersonsPageController" pagetitle="Persons" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-livefilter title="Filter Person" dataset="bind:Variables.LSUCPersonData.dataSet" captionalign="left" captionposition="top" name="personsFilter" expanded="false" collapsible="true">
+                <wm-layoutgrid columns="2" name="layoutgrid1">
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                            <wm-filter-field name="gender" field="gender" displayname="Gender" widget="number" lookup-type="Gender" lookup-field="pk" is-related="true" related-entity-name="Gender" is-range="false" type="integer" is-primary-key="false" generator="assigned"
+                            show="true" inputtype="number" key="gender" placeholder="Enter value"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn2">
+                            <wm-filter-field name="prefix" field="prefix" displayname="Prefix" widget="number" lookup-type="Prefix" lookup-field="pk" is-related="true" related-entity-name="Prefix" is-range="false" type="integer" is-primary-key="false" generator="assigned"
+                            show="true" inputtype="number" key="prefix" placeholder="Enter value"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                            <wm-filter-field name="suffix" field="suffix" displayname="Suffix" widget="number" lookup-type="Suffix" lookup-field="pk" is-related="true" related-entity-name="Suffix" is-range="false" type="integer" is-primary-key="false" generator="assigned"
+                            show="true" inputtype="number" key="suffix" placeholder="Enter value"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                            <wm-filter-field name="lastName" field="lastName" displayname="Last Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="lastName" placeholder="Enter value"
+                            matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow3">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                            <wm-filter-field name="firstName" field="firstName" displayname="First Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="firstName" placeholder="Enter value"
+                            matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                            <wm-filter-field name="commonlyReferredToName" field="commonlyReferredToName" displayname="Commonly Referred To Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text"
+                            key="commonlyReferredToName" placeholder="Enter value" matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow4">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn7">
+                            <wm-filter-field name="middleNames" field="middleNames" displayname="Middle Names" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="middleNames" placeholder="Enter value"
+                            matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn8">
+                            <wm-filter-field name="birthDate" field="birthDate" displayname="Birth Date" widget="date" is-range="false" type="date" is-primary-key="false" generator="assigned" show="true" key="birthDate" placeholder="Select date"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow5">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn9">
+                            <wm-filter-field name="mailingName" field="mailingName" displayname="Mailing Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="mailingName" placeholder="Enter value"
+                            matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="wi wi-filter-list" title="Filter" action="filter()" disabled="false" type="button"></wm-filter-action>
+                <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="wi wi-cancel" title="Clear" action="clearFilter()" disabled="false" type="button"></wm-filter-action>
+            </wm-livefilter>
+            <wm-grid title="" dataset="bind:Widgets.personsFilter.result" navigation="Basic" name="personGrid" on-click="Variables.goToPage_Person.invoke()">
+                <wm-grid-column binding="pk" caption="Pk" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true"></wm-grid-column>
+                <wm-grid-column binding="firstName" caption="First Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="lastName" caption="Last Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="middleNames" caption="Middle Names" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="commonlyReferredToName" caption="Commonly Referred To Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="mailingName" caption="Mailing Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="birthDate" caption="Birth Date" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                <wm-grid-column binding="gender.pk" caption="Gender Pk" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Gender"></wm-grid-column>
+                <wm-grid-column binding="gender.code" caption="Gender Code" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="Gender" readonly="true"></wm-grid-column>
+                <wm-grid-column binding="gender.shortNameEnglish" caption="Name English" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="Gender" readonly="true"></wm-grid-column>
+            </wm-grid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

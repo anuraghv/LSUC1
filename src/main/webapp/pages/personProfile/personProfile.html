@@ -1,0 +1,18 @@
+<wm-partial data-ng-controller="personProfilePageController" name="partial1">
+    <wm-card name="card3" margin="unset 0px">
+        <wm-card-content horizontalalign="center" name="card_content3">
+            <wm-container class="media" name="container1">
+                <wm-container class="media-left" name="container2">
+                    <wm-picture class="media-object visible-xs-block" name="Picture" shape="circle" picturesource="http://dev.wavemaker.com/examples/salesrep/Keith-Neilson.png" width="100"></wm-picture>
+                </wm-container>
+                <wm-container class="media-body" name="container3" padding="unset unset unset 1em">
+                    <wm-label name="ID" caption="bind:Variables.LSUCPersonData.firstRecord.suffix.shortNameEnglish+' '+Variables.LSUCPersonData.firstRecord.firstName+' '+
+Variables.LSUCPersonData.firstRecord.lastName" class="h3" margin="0px unset" fontweight="bold"></wm-label>
+                    <wm-label name="Name" caption="bind:Variables.LSUCPersonData.firstRecord.suffix.shortNameEnglish" class="p"></wm-label>
+                    <wm-label name="JobTitle" caption="bind:Variables.LSUCPersonData.firstRecord.gender.shortNameEnglish" class="p" whitespace="nowrap"></wm-label>
+                    <wm-label name="Department" caption="bind:'DOB: '+ (Variables.LSUCPersonData.firstRecord.birthDate | toDate: 'dd MMM  yyyy')" class="p text-muted" whitespace="nowrap"></wm-label>
+                </wm-container>
+            </wm-container>
+        </wm-card-content>
+    </wm-card>
+</wm-partial>

@@ -1,0 +1,17 @@
+<wm-partial data-ng-controller="PersonalRelationShipPageController" name="partial1">
+    <wm-grid editmode="inline" title="Personal Relationship" dataset="bind:Variables.LSUCPersonpersonData.dataSet" navigation="None" name="personRelationshipGrid" showheader="true" gridclass="table-striped" iconclass="wi wi-open-with" class="panel-default">
+        <wm-grid-column binding="personByPersonFkParent.pk" caption="Parent Pk" type="integer" primary-key="true" generator="identity" edit-widget-type="text" defaultvalue="bind:pageParams.id" show="false" related-entity-name="Person" readonly="false"></wm-grid-column>
+        <wm-grid-column binding="personByPersonFkChild.pk" caption="Name" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="autocomplete" datafield="pk" displayfield="firstName" displaylabel="firstName"
+        searchkey="firstName,lastName" show="true" related-entity-name="Person" readonly="false">
+            <wm-label caption="{{row.personByPersonFkChild.firstName}}" class="" data-ng-class=""></wm-label>
+        </wm-grid-column>
+        <wm-grid-column binding="personrelationshiptype.pk" caption="Relation" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish" show="true" related-entity-name="Personrelationshiptype"
+        readonly="false">
+            <wm-label caption="{{row.personrelationshiptype.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+        </wm-grid-column>
+        <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+        <wm-grid-action key="addNewRow" display-name="Add Relationship" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Relationship" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+        <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+        <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+    </wm-grid>
+</wm-partial>

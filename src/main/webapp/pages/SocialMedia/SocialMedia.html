@@ -1,0 +1,37 @@
+<wm-partial data-ng-controller="SocialMediaPageController" name="partial1">
+    <wm-livegrid name="sociallivegrid">
+        <wm-grid gridfirstrowselect="true" editmode="form" title="Social Media" dataset="bind:Variables.LSUCPersonsocialmediacontactData.dataSet" navigation="Basic" name="socialGrid">
+            <wm-grid-column binding="pk" caption="Pk" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true"></wm-grid-column>
+            <wm-grid-column binding="isDisplayedOnDirectory" caption="Is Displayed On Directory" generator="assigned" pcdisplay="true" mobiledisplay="true" type="character"></wm-grid-column>
+            <wm-grid-column binding="socialMedia" caption="Social Media" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+            <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+            <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+            <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+        </wm-grid>
+        <wm-liveform novalidate="false" errormessage="" title="Social Media Info" formlayout="inline" iconclass="wi wi-edit" dataset="bind:Variables.LSUCPersonsocialmediacontactData.dataSet" captionalign="left" captionposition="top" name="socialLiveForm">
+            <wm-layoutgrid columns="3" name="layoutgrid8">
+                <wm-gridrow name="gridrow35">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn70">
+                        <wm-form-field name="socialmediatype" displayname="Socialmediatype" required="false" show="true" generator="assigned" primary-key="false" key="socialmediatype" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn71">
+                        <wm-form-field name="isDisplayedOnDirectory" displayname="Is Displayed On Directory" required="false" show="true" generator="assigned" primary-key="false" key="isDisplayedOnDirectory" type="character" is-related="false" maxchars="1"
+                        pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn72">
+                        <wm-form-field name="socialMedia" displayname="URL" required="false" show="true" generator="assigned" primary-key="false" key="socialMedia" type="string" is-related="false" maxchars="100" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow36">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn73"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn74">
+                        <wm-form-field name="socialmediapurpose" displayname="Socialmediapurpose" required="false" show="true" generator="assigned" primary-key="false" key="socialmediapurpose" type="list" is-related="true" pc-display="true" mobile-display="true"
+                        widget="select"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+        </wm-liveform>
+    </wm-livegrid>
+</wm-partial>

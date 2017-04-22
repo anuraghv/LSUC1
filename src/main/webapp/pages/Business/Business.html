@@ -1,0 +1,93 @@
+<wm-page data-ng-controller="BusinessPageController" pagetitle="Business" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-label padding="unset 0.5em" name="label1" class="h2" caption="Business Details"></wm-label>
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1" padding="unset 0.25em unset 0.5em">
+                        <wm-container name="container1" borderwidth="1px" bordercolor="#d8d8d8" backgroundcolor="#fff" margin="unset unset 1em unset" padding="1em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow2">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn3">
+                                        <wm-label padding="unset 1em" name="isActive" caption="bind:Variables.Business.firstRecord.isActive === 'Y' ? &quot;ACTIVE&quot; : &quot;&quot;" class="label-success"></wm-label>
+                                        <wm-label padding="unset 0.5em" name="businessName" caption="bind:Variables.Business.firstRecord.businessName + ' (' + Variables.Business.firstRecord.alsoKnownAs + ')'" class="h3" margin="4px unset 0px unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn4" horizontalalign="left">
+                                        <wm-label padding="unset 0.5em" name="label3" class="p text-muted" caption="Business Type"></wm-label>
+                                        <wm-label padding="unset 0.5em" name="businessType" caption="bind:Variables.Business.firstRecord.businesstype.code + ' - ' + Variables.Business.firstRecord.businesstype.shortNameEnglish"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label padding="unset 0.5em" name="label6" caption="bind:Variables.Business.firstRecord.businessNumber" class="p text-muted"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                                        <wm-label padding="unset 0.5em" class="p text-muted" caption="Business Legal Type" name="label7"></wm-label>
+                                        <wm-label padding="unset 0.5em" caption="bind:Variables.Business.firstRecord.businesslegaltype.code + ' - ' + Variables.Business.firstRecord.businesslegaltype.shortNameEnglish" name="businessLegalType"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                        <wm-grid editmode="inline" title="Address" dataset="bind:Variables.LSUCBusinessaddressData.dataSet" navigation="None" name="businessAddressGrid" iconclass="wi wi-location-on fa-2x">
+                            <wm-grid-column binding="addressLine1" caption="Address Line1" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="city" caption="City" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="postalCode" caption="Postal Code" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="isDisplayedOnDirectory" caption="Is Displayed On Directory" type="character" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Address" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Address" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-grid editmode="inline" title="Organizational Unit" dataset="bind:Variables.LSUCOrganizationalunitData.dataSet" navigation="None" name="businessOrgUnitGrid">
+                            <wm-grid-column binding="organizationalunitName" caption="Unit" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="organizationalunittype.shortNameEnglish" caption="Type" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Organizationalunittype"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Organisational Unit" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Organisational Unit" action="addNewRow()" shortcutkey="" disabled="false"
+                            position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn25_1" padding="unset 0.5em unset 0.25em">
+                        <wm-container name="container2" content="BusinessPersonRelationship">
+                            <wm-param name="businessId" value="bind:pageParams.businessId" type="integer"></wm-param>
+                        </wm-container>
+                        <wm-grid editmode="inline" title="Phone" dataset="bind:Variables.LSUCBusinessphonecontactData.dataSet" navigation="None" name="businessPhoneGrid" iconclass="wi wi-phone fa-2x">
+                            <wm-grid-column binding="phonepurpose.shortNameEnglish" caption="Purpose" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Phonepurpose"></wm-grid-column>
+                            <wm-grid-column binding="contactNumber" caption="Number" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="extension" caption="Extension" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="isDisplayedOnDirectory" caption="On Directory" type="character" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Phone" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Phone" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-grid editmode="inline" title="Email" dataset="bind:Variables.LSUCBusinessemailcontactData.dataSet" navigation="None" name="businessEmailGrid" iconclass="wi wi-email fa-2x">
+                            <wm-grid-column binding="emailpurpose.shortNameEnglish" caption="Purpose" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Emailpurpose"></wm-grid-column>
+                            <wm-grid-column binding="emailAddress" caption="Email" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="isDisplayedOnDirectory" caption="On Directory" type="character" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Email" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Email" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-grid editmode="inline" title="Social Media" dataset="bind:Variables.LSUCBusinesssocialmediacontactData.dataSet" navigation="None" name="businessSocialMediaGrid" iconclass="wi wi-share fa-2x">
+                            <wm-grid-column binding="socialmediatype.shortNameEnglish" caption="Social Media" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Socialmediatype"></wm-grid-column>
+                            <wm-grid-column binding="socialMedia" caption="Url" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="socialmediapurpose.shortNameEnglish" caption="Purpose" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Socialmediapurpose"></wm-grid-column>
+                            <wm-grid-column binding="isDisplayedOnDirectory" caption="On Directory" type="character" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="Add Social Media Account" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Social Media Account" action="addNewRow()" shortcutkey="" disabled="false"
+                            position="header"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -1,0 +1,15 @@
+<wm-partial data-ng-controller="BusinessPersonRelationshipTypePageController" name="partial1">
+    <wm-grid editmode="inline" title="bind:pageParams.businessName" dataset="bind:Variables.LSUCBusinesspersonrelationshipData.dataSet" navigation="None" name="businessRelations" gridclass="table-striped">
+        <wm-grid-column binding="businessperson.pk" caption="Businessperson Pk" type="integer" primary-key="true" generator="identity" edit-widget-type="text" datafield="pk" displayfield="pk" defaultvalue="bind:pageParams.businesspersonId" show="false" related-entity-name="Businessperson"
+        readonly="false"></wm-grid-column>
+        <wm-grid-column binding="businesspersonrelationshiptype.pk" caption="Relationship" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="All Fields" displayfield="shortNameEnglish"
+        show="true" related-entity-name="Businesspersonrelationshiptype" readonly="false">
+            <wm-label caption="{{row.businesspersonrelationshiptype.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+        </wm-grid-column>
+        <wm-grid-column binding="userReportedStartDate" caption="From Date" type="date" generator="assigned" edit-widget-type="date" show="true" readonly="false"></wm-grid-column>
+        <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+        <wm-grid-action key="addNewRow" display-name="Add Relationship" show="true" class="btn-link" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+        <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+        <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+    </wm-grid>
+</wm-partial>

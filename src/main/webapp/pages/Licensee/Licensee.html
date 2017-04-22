@@ -1,0 +1,89 @@
+<wm-page data-ng-controller="LicenseePageController" pagetitle="Licensee" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1" class="col-xs-5">
+                        <wm-label padding="unset 0.5em" class="h2" caption="Licensee Details" name="label1"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2" class="col-xs-7" horizontalalign="right">
+                        <wm-button class="btn-primary" caption="Add License" type="button" margin="unset 0.5em" name="addLicenseBtn" iconclass="wi wi-plus" on-click="addLicenseBtnClick($event, $scope)"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-container content="personProfile" name="profileContainer"></wm-container>
+            <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.LSUCLicenseeData.dataSet" navigation="None" name="licenseList">
+                <wm-listtemplate layout="inline" name="listtemplate1">
+                    <wm-panel subheading="bind:&quot;License Type: &quot;+Variables.LSUCLicenseeData.dataSet.data[$i].licencetype.code" iconclass="" autoclose="outsideClick" name="panel1" title="bind:&quot;License Number: &quot; + Variables.LSUCLicenseeData.dataSet.data[$i].licenseeNumber"
+                    collapsible="true" closable="false" content="License" class="panel-primary" expanded="true">
+                        <wm-param name="licenseNumber" value="bind:Widgets.licenseList.currentItem.licenseeNumber" type="integer"></wm-param>
+                        <wm-param name="personId" value="bind:pageParams.id" type="integer"></wm-param>
+                    </wm-panel>
+                </wm-listtemplate>
+            </wm-livelist>
+            <wm-liveform novalidate="false" errormessage="" title="Licensee Details" iconclass="" defaultmode="View" dataset="bind:Variables.LSUCLicenseeData.dataSet" captionalign="left" captionposition="top" name="addLicensee" on-beforeservicecall="liveform1Beforeservicecall($event, $operation, $data)"
+            show="bind:Widgets.addLicensee.isUpdateMode" on-success="Widgets.addLicensee.cancel()" class="panel-default">
+                <wm-layoutgrid columns="3" name="layoutgrid2">
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                            <wm-form-field name="licenseeNumber" displayname="Licensee Number" show="true" primary-key="false" generator="assigned" key="licenseeNumber" type="string" readonly="false" required="true" widget="text" maxchars="20" inputtype="text"
+                            placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                            <wm-form-field name="licenseDate" displayname="License Date" show="true" primary-key="false" generator="assigned" key="licenseDate" type="date" readonly="false" required="true" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                            <wm-form-field name="citizenship" displayname="Citizenship" show="true" primary-key="false" generator="assigned" key="citizenship" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                            displayexpression="shortNameEnglish"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                            <wm-form-field name="licencetype" displayname="Licencetype" show="true" primary-key="false" generator="assigned" key="licencetype" type="list" is-related="true" readonly="false" required="true" widget="select" displayexpression="shortNameEnglish"
+                            placeholder="Select value"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow4">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn8">
+                            <wm-liveform novalidate="false" errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.LSUCLicenseeclasspracticegroupData.dataSet" captionalign="left" captionposition="top" name="licenseeclasspracticegroupsForm">
+                                <wm-layoutgrid columns="3" name="layoutgrid4" class="gray">
+                                    <wm-gridrow name="gridrow14">
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn31_1" padding="unset unset unset 1em">
+                                            <wm-form-field name="effectiveFromDate" displayname="Effective From Date" show="true" primary-key="false" generator="assigned" key="effectiveFromDate" type="date" readonly="false" required="true" widget="date" placeholder="yyyy-MM-dd"
+                                            outputformat="yyyy-MM-dd" datepattern="yyyy-MM-dd"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn27">
+                                            <wm-form-field name="effectiveToDate" displayname="Effective To Date" show="true" primary-key="false" generator="assigned" key="effectiveToDate" type="date" readonly="false" required="false" widget="date" placeholder="yyyy-MM-dd"
+                                            outputformat="yyyy-MM-dd" mindate="bind:Widgets.effectiveFromDate.datavalue"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <!--  <wm-gridcolumn columnwidth="2" name="gridcolumn28_1"><wm-label padding="unset 0.5em" name="label3" caption="Class"></wm-label><wm-select name="dummyClass" dataset="bind:Variables.LSUCClassData.dataSet" datafield="All Fields" displayfield="shortNameEnglish" placeholder="Select Class" required="true"></wm-select></wm-gridcolumn>-->
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn34">
+                                            <wm-form-field displayname="Class" widget="select" show="true" type="custom" name="dummyClass" dataset="bind:Variables.LSUCClassData.dataSet" datafield="All Fields" displayfield="shortNameEnglish" placeholder="Select Class"
+                                            required="true"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn33">
+                                            <wm-form-field name="classpraticegroup" displayname="Practice Group" show="true" primary-key="false" generator="assigned" key="classpraticegroup" type="list" is-related="true" readonly="false" required="true" widget="select"
+                                            displayexpression="bind:$[practicegroup.shortNameEnglish]" placeholder="Select value" dataset="bind:Variables.getAssociatedPracticeGroups.dataSet" datafield="All Fields"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn35">
+                                            <wm-form-field name="isPrimary" displayname="Is Primary" show="true" primary-key="false" generator="assigned" key="isPrimary" type="character" readonly="false" required="false" widget="checkbox" maxchars="1" placeholder="Enter value"
+                                            defaultvalue="Y" checkedvalue="Y" uncheckedvalue="N"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-liveform>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-form-field name="personFk" key="personFk" displayname="Person Fk" show="false" type="integer" widget="number" defaultvalue="bind:pageParams.id" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
+                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+            </wm-liveform>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

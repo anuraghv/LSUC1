@@ -1,0 +1,78 @@
+<wm-page data-ng-controller="SearchPageController" pagetitle="Search" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-breadcrumb dataset="Home, Search" name="breadcrumb1"></wm-breadcrumb>
+            <wm-container padding="3em" class="gray" name="container3">
+                <wm-container class="media" name="container2_2">
+                    <wm-container class="media-body" name="container3_1">
+                        <wm-text name="searchtext" placeholder="Type to search Licensee , Business and Person" on-blur="searchtextBlur($event, $scope)"></wm-text>
+                    </wm-container>
+                    <wm-container class="media-right" name="container4">
+                        <wm-button class="btn-primary" caption="" type="button" margin="unset 0.5em" name="searchButton" iconclass="wi wi-search" on-click="searchButtonClick($event, $scope)"></wm-button>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+            <wm-label padding="unset 0.5em" name="label1" caption="bind:&quot;Search results for &quot;+ Widgets.searchtext.query" class="h3"></wm-label>
+            <wm-layoutgrid name="layoutgrid3">
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn9" padding="unset 1em">
+                        <wm-panel iconclass="wi wi-account-circle" autoclose="outsideClick" name="panel1" title="Licensee">
+                            <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.LSUCLicenseeData.dataSet" navigation="On-Demand" name="licenseeSearchList" paginationclass="btn-primary"
+                            itemclass="list-group-item" on-click="Variables.goToPage_LicenseeInfo.invoke()">
+                                <wm-listtemplate layout="media" name="licenseelisttemplate">
+                                    <wm-container class="media-left" name="container2_1">
+                                        <wm-icon iconclass="wi wi-account-circle" iconsize="24pt" hint="Business" name="icon2"></wm-icon>
+                                    </wm-container>
+                                    <wm-container class="media-body" name="container2">
+                                        <wm-label name="ID" caption="bind:Variables.LSUCLicenseeData.dataSet.licenseeNumber" class="h4 media-heading" margin="unset unset 0px unset" whitespace="nowrap"></wm-label>
+                                        <wm-label name="licenseeName" class="p" caption="bind:Variables.LSUCLicenseeData.dataSet.data[$i].person.firstName+&quot; &quot; + Variables.LSUCLicenseeData.dataSet.data[$i].person.middleNames +&quot; &quot;+Variables.LSUCLicenseeData.dataSet.data[$i].person.lastName"></wm-label>
+                                        <wm-label class="p" caption="bind:Variables.LSUCLicenseeData.dataSet.data[$i].citizenship.shortNameEnglish" name="citizenship"></wm-label>
+                                        <wm-label class="p" caption="bind:Variables.LSUCLicenseeData.dataSet.data[$i].feecategory.shortNameEnglish" name="feecategory"></wm-label>
+                                        <wm-label class="p" caption="bind:Variables.LSUCLicenseeData.dataSet.data[$i].geographicarea.region.shortNameEnglish" name="regionName"></wm-label>
+                                    </wm-container>
+                                </wm-listtemplate>
+                            </wm-livelist>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn5" padding="unset 1em">
+                        <wm-panel iconclass="wi wi-business" autoclose="outsideClick" name="panel2" title="Business">
+                            <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.LSUCBusinessData.dataSet" navigation="On-Demand"
+                            name="businessSearchList" paginationclass="btn-primary">
+                                <wm-listtemplate layout="inline" name="listtemplate2">
+                                    <wm-container class="media-left" name="container2_1">
+                                        <wm-icon iconclass="wi wi-business" name="icon1" iconsize="24pt" hint="Business"></wm-icon>
+                                        <wm-icon name="icon3" iconclass="wi wi-check-circle fa-2x" class="text-success icon-fixed" show="bind:Variables.LSUCBusinessData.dataSet.data[$i].isActive === 'Y'"></wm-icon>
+                                    </wm-container>
+                                    <wm-container class="media-body" name="container2">
+                                        <wm-label class="h4 media-heading" name="Name" caption="bind:Variables.LSUCBusinessData.dataSet.businessName" fontunit="em"></wm-label>
+                                        <wm-label class="p" caption="bind:Variables.LSUCBusinessData.dataSet.data[$i].businesslegaltype.shortNameEnglish" name="businessLegalName"></wm-label>
+                                        <wm-label class="p" caption="bind:Variables.LSUCBusinessData.dataSet.data[$i].businessstatus.shortNameEnglish" name="businessStatus"></wm-label>
+                                    </wm-container>
+                                </wm-listtemplate>
+                            </wm-livelist>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" padding="unset 1em">
+                        <wm-panel iconclass="wi wi-user" autoclose="outsideClick" name="panel3" title="Person">
+                            <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-2 lg-2" class="list-card" dataset="bind:Variables.LSUCPersonData.dataSet" navigation="On-Demand" name="peopleSearchList" paginationclass="btn-primary">
+                                <wm-listtemplate layout="media" name="listtemplate3">
+                                    <wm-card name="card2">
+                                        <wm-card-content name="card_content2" class="text-center">
+                                            <wm-picture name="Picture" width="24pt" picturesource="resources/images/imagelists/user.png" height="24pt"></wm-picture>
+                                            <wm-label name="Name" caption="bind:Variables.LSUCPersonData.dataSet.data[$i].firstName + &quot; &quot; + Variables.LSUCPersonData.dataSet.data[$i].middleNames + &quot; &quot; + Variables.LSUCPersonData.dataSet.data[$i].lastName"
+                                            class="h4" margin="0px unset" whitespace="nowrap"></wm-label>
+                                            <wm-label name="JobTitle" caption="bind:Variables.LSUCPersonData.dataSet.middleNames" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                                        </wm-card-content>
+                                    </wm-card>
+                                </wm-listtemplate>
+                            </wm-livelist>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -1,0 +1,33 @@
+{
+  "LSUCExecuteExpirationStatus" : {
+    "_id" : "wm-LSUCExecuteExpirationStatus-wm.ServiceVariable-1492764942646",
+    "name" : "LSUCExecuteExpirationStatus",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "toDate",
+      "value" : "bind:Widgets.toDate.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "fromDate",
+      "value" : "bind:Widgets.fromDate.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.lsuc.lsuc.models.query.ExpirationStatusResponse",
+    "service" : "LSUC",
+    "operation" : "executeExpirationStatus",
+    "operationId" : "QueryExecutionController_executeExpirationStatus",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  }
+}

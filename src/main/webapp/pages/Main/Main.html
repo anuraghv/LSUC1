@@ -1,0 +1,147 @@
+<wm-page data-ng-controller="MainPageController" name="mainpage" pagetitle="Main">
+    <wm-header content="header" name="header" height="auto"></wm-header>
+    <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="mainContent" padding="0px 0px unset 0px">
+            <wm-layoutgrid name="layoutgrid12">
+                <wm-gridrow name="gridrow2" class="bg-primary" padding="1em">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5">
+                        <wm-composite name="composite1">
+                            <wm-label class="col-md-3 control-label" name="label3" caption="Search" fontunit="em" padding="0.5em .5em unset unset" textalign="left"></wm-label>
+                            <wm-container class="col-md-9" name="container2">
+                                <wm-select name="filterOption" dataset="Licensee, Business" datavalue="Licensee"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn22_1">
+                        <wm-search datafield="All Fields" on-select="Variables.goToPage_Business.invoke()" name="searchBusiness" placeholder="Search Business Number, Name" dataset="bind:Variables.BusinessData.dataSet" searchkey="alsoKnownAs,businessName,businessNumber"
+                        displaylabel="bind:$[data[$i].businessNumber]+' - '+$[data[$i].businessName]" orderby="businessName:desc" show="bind:Widgets.filterOption.datavalue === 'Business'" width="100%"></wm-search>
+                        <wm-search name="searchLicensee" dataset="bind:Variables.Licensee.dataSet" searchkey="licenseeNumber,person.firstName,person.lastName" displaylabel="bind:$[data[$i].licenseeNumber] + &quot; - [ &quot; + $[data[$i].person.firstName] + &quot; &quot; + $[data[$i].person.lastName] + &quot;]&quot;"
+                        datafield="All Fields" on-select="Variables.goToPage_LicenseeInfo.invoke()" placeholder="Search Licensee ID, Name" show="bind:Widgets.filterOption.datavalue === 'Licensee'" width="100%"></wm-search>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="7" name="gridcolumn4" horizontalalign="right">
+                        <wm-button class="btn-secondary" caption="Add Licensee" type="button" margin="unset 0.5em" name="button2" iconclass="fa fa-user-plus" on-click="Variables.goToPage_AddLicensee.invoke()"></wm-button>
+                        <wm-button class="btn-secondary" caption="Add Business" type="button" margin="unset 0.5em" name="button1" iconclass="wi wi-business" on-click="Variables.goToPage_AddBusiness.invoke()"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow14" padding="1em unset unset unset">
+                    <wm-gridcolumn columnwidth="9" name="gridcolumn36" padding="unset 1em">
+                        <wm-livelist iconclass="wi wi-done" autoclose="outsideClick" title="Pending Approvals" listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list panel panel-default" dataset="bind:Variables.pendingApprovals.dataSet"
+                        navigation="On-Demand" name="pendingApprovalLiveList" on-click="pendingApprovalLiveListClick($event, $scope)" padding="1em 1em unset 1em">
+                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                <wm-panel name="panel3" collapsible="true" expanded="false" subheading="bind:Variables.pendingApprovals.dataSet.data[$i].licensee.person.firstName +' '+ Variables.pendingApprovals.dataSet.data[$i].licensee.person.lastName+' ('+Variables.pendingApprovals.dataSet[$i].licensee.licenseeNumber+')'"
+                                title="Status Change" badgevalue="time" iconclass="" class="panel-secondary">
+                                    <wm-layoutgrid name="oldlayoutgrid" class="new-block app-form panel" show="bind:Variables.pendingApprovals.dataSet[$i].status == 'Updated'">
+                                        <wm-gridrow name="gridrow7">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn16">
+                                                <wm-label name="label9_1" caption="Class" class="control-label" width="100%"></wm-label>
+                                                <wm-label name="label10_1" caption="bind:Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.code +' '+Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.shortNameEnglish"
+                                                class="form-control-static"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn18">
+                                                <wm-label caption="Practice Group" class="control-label" width="100%" name="label11"></wm-label>
+                                                <wm-label name="label12" caption="bind:Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.practicegroup.code +' '+Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.shortNameEnglish"
+                                                class="form-control-static"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn19">
+                                                <wm-label caption="Effective From" class="control-label" width="100%" name="label13"></wm-label>
+                                                <wm-label name="label14" caption="bind:Variables.pendingApprovals.dataSet.data[$i].newEffectiveFromDate" class="form-control-static"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn17" horizontalalign="right">
+                                                <wm-label padding="unset 0.5em" name="label22" caption="OLD"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow8">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn20">
+                                                <wm-label caption="Effective To" class="control-label" width="100%" name="label16"></wm-label>
+                                                <wm-label name="label17" caption="bind:Variables.pendingApprovals.dataSet.data[$i].newEffectiveToDate" class="form-control-static"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn21" horizontalalign="left">
+                                                <wm-checkbox caption="Is Primary" name="checkbox1" checkedvalue="Y" uncheckedvalue="N" disabled="true" datavalue="bind:Variables.pendingApprovals.dataSet.data[$i].newIsPrimary"></wm-checkbox>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn22">
+                                                <wm-label padding="unset 0.5em" name="label18" caption="Status" class="control-label p"></wm-label>
+                                                <wm-label padding="unset 0.5em" name="label17_1" caption="bind:Variables.pendingApprovals.dataSet.data[$i].status" color="red"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn23"></wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-layoutgrid class="new-block app-form panel" name="newlayoutgrid">
+                                        <wm-gridrow name="gridrow6">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn17_1">
+                                                <wm-label caption="Class" class="control-label" width="100%" name="label12_1"></wm-label>
+                                                <wm-label caption="bind:Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.code +' '+Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.shortNameEnglish"
+                                                class="form-control-static" name="label13_1"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn18_1">
+                                                <wm-label caption="Practice Group" class="control-label" width="100%" name="label14_1"></wm-label>
+                                                <wm-label caption="bind:Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.practicegroup.code +' '+Variables.pendingApprovals.dataSet.data[$i].licenseeclasspracticegroup.classpraticegroup.classEntity.shortNameEnglish"
+                                                class="form-control-static" name="label15"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn19_1">
+                                                <wm-label caption="Effective From" class="control-label" width="100%" name="label16_1"></wm-label>
+                                                <wm-label caption="bind:Variables.pendingApprovals.dataSet.data[$i].newEffectiveFromDate" class="form-control-static" name="label17_2"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn20_1" horizontalalign="right">
+                                                <wm-label padding="unset 0.5em" name="label23" caption="NEW" class="label-success"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow7_1">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn21_1">
+                                                <wm-label caption="Effective To" class="control-label" width="100%" name="label18_1"></wm-label>
+                                                <wm-label caption="bind:Variables.pendingApprovals.dataSet.data[$i].newEffectiveToDate" class="form-control-static" name="label19"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" horizontalalign="left" name="gridcolumn22_2">
+                                                <wm-checkbox caption="Is Primary" checkedvalue="Y" uncheckedvalue="N" disabled="true" datavalue="bind:Variables.pendingApprovals.dataSet.data[$i].newIsPrimary" name="checkbox2"></wm-checkbox>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn23_1">
+                                                <wm-label padding="unset 0.5em" caption="Status" class="control-label p" name="label20"></wm-label>
+                                                <wm-label padding="unset 0.5em" caption="bind:Variables.pendingApprovals.dataSet.data[$i].status" color="red" name="label21"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn24" horizontalalign="left">
+                                                <wm-anchor margin="1em 0.5em unset 0.5em" name="anchor1" caption="More..." on-click="Variables.goToPage_Approval.invoke()"></wm-anchor>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-buttongroup name="approverejectBtnGrp" accessroles="supervisor">
+                                        <wm-button class="btn btn-primary" type="button" caption="Approve" name="approveBtn" on-click="approveBtnClick($event, $scope, item, currentItemWidgets)"></wm-button>
+                                        <wm-button class="btn btn-secondary" type="button" caption="Reject" name="rejectBtn" on-click="rejectBtnClick($event, $scope, item, currentItemWidgets)" margin="unset unset unset .5em"></wm-button>
+                                    </wm-buttongroup>
+                                </wm-panel>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn37" padding="unset 1em">
+                        <wm-livelist iconclass="wi wi-format-list-bulleted" title="Recent Activity" listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list panel panel-info" dataset="bind:Variables.PersonHistoryData.dataSet"
+                        navigation="On-Demand" name="recentAcitivityLiveList" padding="1em 1em unset 1em" itemclass="list-group-item">
+                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                <wm-container class="media-left" name="container2_1">
+                                    <wm-container width="40" height="40" name="container3" class="btn-rounded btn btn-primary"></wm-container>
+                                </wm-container>
+                                <wm-container class="media-body" name="container4">
+                                    <wm-label class="p media-heading" caption="bind:Variables.PersonHistoryData.dataSet[$i].type" fontsize="1.143" fontunit="em" name="label5"></wm-label>
+                                    <wm-label caption="bind:Variables.PersonHistoryData.dataSet[$i].username" class="p text-muted" name="label6"></wm-label>
+                                    <wm-label caption="bind:Variables.PersonHistoryData.dataSet[$i].timeStamp" class="pull-right text-muted" name="label27"></wm-label>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" padding="1em unset unset unset">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" padding="unset 1em">
+                        <wm-chart type="Bar" title="MSR Activity" height="250px" iconclass="" name="chart1" class="small btn-transparent" accessroles="supervisor" theme="Annabelle"></wm-chart>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7" padding="unset 1em">
+                        <wm-chart type="Line" title="Change Request" height="250px" iconclass="" name="chart4" class="btn-transparent  small" accessroles="supervisor" theme="Orient"></wm-chart>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8" padding="unset 1em">
+                        <wm-chart type="Column" title="Top 5 Business By Employee Number" height="250" iconclass="" name="chart3" dataset="bind:Variables.BusinessData.dataSet" xaxisdatakey="businessName" yaxisdatakey="numberOfEmployees" orderby="numberOfEmployees:desc"
+                        class="btn-transparent small" showyaxis="true" offsetleft="25" offsetright="0" offsettop="5" accessroles="supervisor" theme="Flyer" xaxislabel="Business" reducexticks="false" barspacing="0.3" staggerlabels="true" xdomain="Min"
+                        showlegend="hide"></wm-chart>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer" content="footer"></wm-footer>
+</wm-page>

@@ -1,0 +1,258 @@
+[ {
+  "name" : "AddBusiness",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AddLicensee",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Addresses",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Approvals",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Business",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "businessId",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "BusinessList",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "BusinessPersonRelationship",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "businessId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "BusinessPersonRelationshipType",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "businesspersonId",
+    "type" : "integer"
+  }, {
+    "name" : "businessName",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "BusinessRelationship",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Contacts",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Dashboard",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Email",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Language",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "License",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "licenseNumber",
+    "type" : "integer"
+  }, {
+    "name" : "personId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Licensee",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "LicenseeList",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "LicenseeProfile",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MailingLabel",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PendingApprovals",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Person",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "PersonHistory",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "PersonalRelationShip",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Persons",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Phone",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "RecentActivity",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Register",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Report",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Role",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Search",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SocialMedia",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "StatusChangeReport",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "User",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "alerts",
+  "type" : "POPOVER",
+  "params" : [ ]
+}, {
+  "name" : "businessPersonRelation",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "businessPersonId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "insurancePolicy",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "insuranceId",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "personProfile",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "reportsLeftNav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "settings",
+  "type" : "POPOVER",
+  "params" : [ ]
+}, {
+  "name" : "test",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+} ]

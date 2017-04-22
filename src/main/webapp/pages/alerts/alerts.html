@@ -1,0 +1,15 @@
+<wm-partial data-ng-controller="alertsPageController" type="popover" name="partial1">
+    <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" dataset="bind:Variables.approvals.dataSet" name="notificationLiveList" navigation="On-Demand" orderby="pk:asc" pagesize="5" on-click="Variables.goToPageLicenseeApprovals.invoke()"
+    class="media-list">
+        <wm-listtemplate layout="blank" name="listtemplate1">
+            <wm-container class="media-left" name="container1">
+                <wm-icon iconclass="wi wi-dot-circle" name="icon1"></wm-icon>
+            </wm-container>
+            <wm-container class="media-left" name="container2">
+                <wm-label class="p bold" caption="Status Change" name="label1" margin="unset unset 0px unset"></wm-label>
+                <wm-label class="p small" caption="bind:'Licensee Info: '+Variables.approvals.dataSet[$i].licensee.licenseeNumber" name="label2"></wm-label>
+                <wm-label class="p small text-muted" caption="bind:&quot;By &quot; + Variables.approvals.dataSet[$i].licensee.person.firstName " name="label3"></wm-label>
+            </wm-container>
+        </wm-listtemplate>
+    </wm-livelist>
+</wm-partial>

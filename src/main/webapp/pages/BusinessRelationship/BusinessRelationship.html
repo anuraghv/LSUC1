@@ -1,0 +1,12 @@
+<wm-partial data-ng-controller="BusinessRelationshipPageController" name="partial1">
+    <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="panel panel-default" dataset="bind:Variables.LSUCBusinesspersonData.dataSet" navigation="None" name="livelist2" title="Business Relationship" iconclass="wi wi-business">
+        <wm-listtemplate layout="inline" name="listtemplate2">
+            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container5">
+                <wm-container name="container2" content="BusinessPersonRelationshipType">
+                    <wm-param name="businesspersonId" value="bind:Widgets.livelist2.currentItem.pk" type="integer"></wm-param>
+                    <wm-param name="businessName" value="bind:Variables.LSUCBusinesspersonData.dataSet.data[$i].business.businessName" type="string"></wm-param>
+                </wm-container>
+            </wm-container>
+        </wm-listtemplate>
+    </wm-livelist>
+</wm-partial>

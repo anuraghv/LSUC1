@@ -1,0 +1,10 @@
+<wm-partial data-ng-controller="businessPersonRelationPageController" name="partial1">
+    <wm-grid editmode="inline" title="" dataset="bind:Variables.LSUCBusinesspersonrelationshipData.dataSet" navigation="None" name="businessPersonRelationGrid">
+        <wm-grid-column binding="businesspersonrelationshiptype.shortNameEnglish" caption="Name English" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Businesspersonrelationshiptype"></wm-grid-column>
+        <wm-grid-column binding="businesspersonrelationshiptype.isActive" caption="Is Active" type="character" primary-key="false" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Businesspersonrelationshiptype"></wm-grid-column>
+        <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+        <wm-grid-action key="addNewRow" display-name="Add Relationship" show="true" class="btn-link pull-left" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+        <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+        <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+    </wm-grid>
+</wm-partial>

@@ -1,0 +1,46 @@
+{
+  "approvals" : {
+    "_id" : "wm-approvals1-wm.ServiceVariable-1492666258851",
+    "name" : "approvals",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "bind:\"status = 'Updated' or status='Created'\"",
+      "type" : "string"
+    } ],
+    "type" : "com.lsuc.lsuc.LicenseeclasspracticegroupApprovals",
+    "service" : "LSUC",
+    "operation" : "filterLicenseeclasspracticegroupApprovals",
+    "operationId" : "LicenseeclasspracticegroupApprovalsController_filterLicenseeclasspracticegroupApprovals",
+    "operationType" : "post",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "LicenseeclasspracticegroupApprovals"
+  },
+  "goToPageLicenseeApprovals" : {
+    "_id" : "wm-goToPageLicenseeApprovals-wm.NavigationVariable-1492747559601",
+    "name" : "goToPageLicenseeApprovals",
+    "owner" : "Page",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Approvals",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "dataSet" : [ {
+      "type" : "integer",
+      "target" : "id",
+      "value" : "bind:Widgets.notificationLiveList.selecteditem.licensee.person.pk"
+    } ],
+    "pageTransitions" : "none"
+  }
+}

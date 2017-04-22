@@ -1,0 +1,238 @@
+<wm-partial data-ng-controller="LicensePageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid3">
+        <wm-gridrow name="gridrow9">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn22" padding="unset 1em unset unset">
+                <wm-button class="btn-link btn-action-top" caption="Add" type="button" name="addLicenseeStatusBtn" iconclass="wi wi-plus fa-2x" on-click="addLicenseeStatusBtnClick($event, $scope)"></wm-button>
+                <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.licenseStatusData.dataSet" navigation="None" name="licenseStatusList" title="LICENSEE STATUS">
+                    <wm-listtemplate layout="inline" name="listtemplate2_1">
+                        <wm-liveform novalidate="false" errormessage="Licensee Status was not updated" title="" iconclass="bind:Widgets.licenseStatusList.currentItem.isPrimary === 'Y' ? 'wi wi-dot-circle text-success' : 'wi wi-dot-circle text-danger'" defaultmode="View"
+                        dataset="bind:Variables.licenseStatusData.dataSet" captionalign="left" captionposition="top" name="licenseStatusForm" formdata="bind:Widgets.licenseStatusList.currentItem" on-beforeservicecall="licenseStatusFormBeforeservicecall1($event, $operation, $data, item, currentItemWidgets)"
+                        class="panel-default" messagelayout="Inline" insertmessage="Licensee Status added successfully" updatemessage="Licensee Status updated successfully" deletemessage="Licensee Status deleted successfully">
+                            <wm-container name="container1_2" horizontalalign="right" margin="-3.5em unset unset unset" show="bind: !Widgets.licenseStatusForm.isUpdateMode">
+                                <wm-button type="button" margin="unset 0.5em" name="licenseStUpBtn" iconclass="wi wi-mode-edit fa-2x" caption="Edit" class="btn-link" on-click="licenseStUpBtnClick($event, $scope)"></wm-button>
+                            </wm-container>
+                            <wm-layoutgrid columns="2" name="layoutgrid2">
+                                <wm-gridrow name="gridrow13">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26">
+                                        <wm-form-field name="classpraticegroup" displayname="Practice Group" show="true" primary-key="false" generator="assigned" key="classpraticegroup" type="list" is-related="true" readonly="false" required="true" widget="select"
+                                        placeholder="Select value" displayexpression="practicegroup.code + ' -  ' + practicegroup.shortNameEnglish"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn27_1">
+                                        <wm-form-field name="effectiveFromDate" displayname="Effective From Date" show="true" primary-key="false" generator="assigned" key="effectiveFromDate" type="date" readonly="false" required="true" widget="date" placeholder="Select date"
+                                        outputformat="yyyy-MM-dd"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow14">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn27">
+                                        <wm-form-field name="effectiveToDate" displayname="Effective To Date" show="true" primary-key="false" generator="assigned" key="effectiveToDate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                        outputformat="yyyy-MM-dd" datepattern="dd MMM yyyy"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn28">
+                                        <wm-form-field name="isPrimary" displayname="Is Primary" show="true" primary-key="false" generator="assigned" key="isPrimary" type="character" readonly="false" required="false" widget="checkbox" maxchars="1" placeholder="Enter value"
+                                        checkedvalue="Y" uncheckedvalue="N"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="saveAndView()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                    </wm-listtemplate>
+                </wm-livelist>
+                <wm-liveform novalidate="false" errormessage="" title="" iconclass="" defaultmode="View" dataset="bind:Variables.licenseStatusData.dataSet" captionalign="left" captionposition="top" name="addLicenseeStatusForm" show="bind:Widgets.addLicenseeStatusForm.isUpdateMode"
+                on-success="Widgets.addLicenseeStatusForm.cancel()">
+                    <wm-layoutgrid columns="2" name="layoutgrid8_1">
+                        <wm-gridrow name="gridrow17">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn34">
+                                <wm-form-field displayname="Class" widget="select" show="true" type="custom" name="dummyClass" dataset="bind:Variables.LSUCClassData.dataSet" datafield="All Fields" displayfield="shortNameEnglish" placeholder="Select Class"
+                                required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn33">
+                                <wm-form-field name="classpraticegroup" displayname="Practice Group" show="true" primary-key="false" generator="assigned" key="classpraticegroup" type="list" is-related="true" readonly="false" required="true" widget="select"
+                                displayexpression="bind:$[practicegroup.shortNameEnglish]" placeholder="Select value" dataset="bind:Variables.getAssociatedPracticeGroups.dataSet" datafield="All Fields"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow18">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn30">
+                                <wm-form-field name="effectiveFromDate" displayname="Effective From Date" show="true" primary-key="false" generator="assigned" key="effectiveFromDate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                outputformat="yyyy-MM-dd"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn31">
+                                <wm-form-field name="effectiveToDate" displayname="Effective To Date" show="true" primary-key="false" generator="assigned" key="effectiveToDate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                outputformat="yyyy-MM-dd"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn32">
+                                <wm-form-field name="isPrimary" displayname="Is Primary" show="true" primary-key="false" generator="assigned" key="isPrimary" type="character" readonly="false" required="false" widget="checkbox" maxchars="1" placeholder="Enter value"
+                                defaultvalue="N" checkedvalue="Y" uncheckedvalue="N"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-field name="licenseeFk" key="licenseeFk" displayname="Licensee Fk" show="false" type="integer" widget="number" inputtype="number" placeholder="Enter value" defaultvalue="bind:Variables.LicenseeData.firstRecord.pk"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+                <wm-container name="container2_1">
+                    <wm-button class="btn-link btn-action-top" caption="Add" type="button" name="addInsBtn" iconclass="wi wi-plus fa-2x" on-click="Widgets.licenseeinsuranceDialog.open()"></wm-button>
+                    <wm-livelist listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" dataset="bind:Variables.LicenseeInsurance.dataSet" navigation="None" name="insuranceList" class="panel panel-default media-list" title="Insurance"
+                    padding="1em 1em unset 1em">
+                        <wm-listtemplate layout="inline" name="listtemplate2">
+                            <wm-panel iconclass="" autoclose="outsideClick" title="bind:Variables.LicenseeInsurance.dataSet.data[$i].insurancecoveragetype.code+&quot;-&quot;+Variables.LicenseeInsurance.dataSet.data[$i].insurancecoveragetype.shortNameEnglish"
+                            name="panel1" content="insurancePolicy" expanded="false" collapsible="true" class="panel-secondary">
+                                <wm-param name="insuranceId" value="bind:Widgets.insuranceList.currentItem.pk" type="string"></wm-param>
+                            </wm-panel>
+                        </wm-listtemplate>
+                    </wm-livelist>
+                </wm-container>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn23">
+                <wm-liveform novalidate="false" errormessage="License Details  save unsuccessful" title="Details" iconclass="" defaultmode="View" dataset="bind:Variables.LicenseeData.dataSet" captionalign="left" captionposition="top" name="licenseDetailsForm"
+                formdata="bind:Variables.LicenseeData.firstRecord" class="panel-default" messagelayout="Toaster" insertmessage="License Details added successfully" updatemessage="License Details updated successfully" deletemessage="License Details deleted successfully">
+                    <wm-button class="btn-link btn-action-top" type="button" name="licenseDetUpBtn" iconclass="wi wi-mode-edit fa-2x" show="bind:!Widgets.licenseDetailsForm.isUpdateMode" caption="Edit" on-click="licenseDetUpBtnClick($event, $scope)" margin="-3.75em unset unset unset"></wm-button>
+                    <wm-layoutgrid columns="2" name="layoutgrid1">
+                        <wm-gridrow name="gridrow12_1">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn28_1">
+                                <wm-form-field name="licencetype" displayname="Licence Type" show="true" primary-key="false" generator="assigned" key="licencetype" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                                displayexpression="code + ' -' + shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn29_1">
+                                <wm-form-field name="licenseeNumber" displayname="Licensee Number" show="true" primary-key="false" generator="assigned" key="licenseeNumber" type="string" readonly="false" required="true" widget="text" maxchars="20" placeholder="Enter value"
+                                inputtype="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow13_1">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn30_1">
+                                <wm-form-field name="licenseDate" displayname="License Date" show="true" primary-key="false" generator="assigned" key="licenseDate" type="date" readonly="false" required="true" widget="date" placeholder="Select
+                                date" outputformat="yyyy-MM-dd" datepattern="dd MMMM, yyyy" maxdate="CURRENT_DATE"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn31_1">
+                                <wm-form-field name="legacyclassstatus" displayname="Legacy Status" show="true" primary-key="false" generator="assigned" key="legacyclassstatus" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                placeholder="Select value" displayexpression="code + ' -' + shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow14_3">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn32_1">
+                                <wm-form-field name="geographicarea" displayname="Geographic Area" show="true" primary-key="false" generator="assigned" key="geographicarea" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                displayexpression="code + ' - ' +shortNameEnglish" orderby="shortNameEnglish:desc"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn33_1">
+                                <wm-form-field name="admissionroute" displayname="Admission Route" show="true" primary-key="false" generator="assigned" key="admissionroute" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                displayexpression="code + ' - ' + shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="saveAndView()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                </wm-liveform>
+                <wm-grid editmode="inline" title="Language Purpose" dataset="bind:Variables.LicenseeLanguageData.dataSet" navigation="None" name="languagedatatable" class="panel-default" gridclass="table-striped" iconclass="">
+                    <wm-grid-column binding="licensee.pk" caption="Licensee Pk" type="integer" primary-key="true" generator="identity" edit-widget-type="text" defaultvalue="bind:Variables.LicenseeData.firstRecord.pk" show="false" related-entity-name="Licensee"
+                    readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="languagepurpose.pk" caption="Purpose" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish" show="true"
+                    related-entity-name="Languagepurpose" readonly="false">
+                        <wm-label caption="{{row.languagepurpose.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+                    </wm-grid-column>
+                    <wm-grid-column binding="personlanguage.pk" caption="Language" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="language.shortNameEnglish" show="true"
+                    related-entity-name="Personlanguage" readonly="false">
+                        <wm-label caption="{{row.personlanguage.language.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+                    </wm-grid-column>
+                    <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="Add Language" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Language" action="addNewRowAction($event)" shortcutkey="" disabled="false" position="header"></wm-grid-action>
+                    <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                </wm-grid>
+                <wm-liveform novalidate="false" errormessage="" title="Add Person Language" iconclass="" defaultmode="View" dataset="bind:Variables.Personlanguage.dataSet" captionalign="left" captionposition="top" name="addLanguageForm" on-beforeservicecall="addLanguageFormBeforeservicecall($event, $operation, $data)"
+                show="bind:Widgets.addLanguageForm.isUpdateMode" on-success="Variables.LicenseeLanguageData.listRecords()" class="panel-default">
+                    <wm-layoutgrid columns="2" name="layoutgrid8">
+                        <wm-gridrow name="gridrow20_1">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn34_1">
+                                <wm-form-field name="languagepurpose" key="languagepurpose" displayname="Purpose" show="true" type="string" widget="select" dataset="bind:Variables.Languagepurpose.dataSet" datafield="pk" displayfield="shortNameEnglish" placeholder="Select value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn35_2">
+                                <wm-form-field name="language" displayname="Language" show="true" primary-key="false" generator="assigned" key="language" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                displayexpression="shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="personFk" key="personFk" displayname="Person Fk" show="false" type="integer" widget="number" inputtype="number" placeholder="Enter value" defaultvalue="bind:pageParams.personId"></wm-form-field>
+                    <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="saveAndView()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+    <wm-view class="dialog-view" name="view2_1">
+        <wm-dialog dialogtype="design-dialog" name="licenseeinsuranceDialog" title="Insurance Details" iconclass="wi wi-edit" modal="true">
+            <wm-liveform novalidate="false" errormessage="" title="" defaultmode="Edit" dataset="bind:Variables.LicenseeInsurance.dataSet" captionalign="left" captionposition="top" on-success="Widgets.licenseeinsuranceDialog.close()" name="addInsuranceForm"
+            on-beforeservicecall="addInsuranceFormBeforeservicecall($event, $operation, $data)">
+                <wm-layoutgrid columns="1" name="layoutgrid7_1">
+                    <wm-gridrow name="gridrow13_2">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn22_1">
+                            <wm-form-field name="insurancecoveragetype" displayname="Coverage Type" show="true" primary-key="false" generator="assigned" key="insurancecoveragetype" type="list" is-related="true" readonly="false" required="false" widget="select"
+                            placeholder="Select value" displayexpression="shortNameEnglish"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow14_1">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn23_1">
+                            <wm-form-field name="isInsured" displayname="Is Insured" show="true" primary-key="false" generator="assigned" key="isInsured" type="string" readonly="false" required="false" widget="checkbox" maxchars="18" placeholder="Enter value"
+                            defaultvalue="N" checkedvalue="Y" uncheckedvalue="N"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow11">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn18">
+                            <wm-liveform novalidate="false" errormessage="" title="Policy Information" iconclass="" defaultmode="Edit" dataset="bind:Variables.LSUCLicenseeinsurancepolicyData.dataSet" captionalign="left" captionposition="top" name="policyForm">
+                                <wm-layoutgrid columns="2" name="layoutgrid6">
+                                    <wm-gridrow name="gridrow12">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                            <wm-form-field name="insurancePolicyNumber" displayname="Policy Number" show="true" primary-key="false" generator="assigned" key="insurancePolicyNumber" type="string" readonly="false" required="false" widget="text"
+                                            maxchars="25" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn20">
+                                            <wm-form-field name="insurancePolicySequenceNumber" displayname="Policy Sequence Number" show="true" primary-key="false" generator="assigned" key="insurancePolicySequenceNumber" type="short" readonly="false" required="false"
+                                            step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow13_3">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn21">
+                                            <wm-form-field name="policyStartDate" displayname="Policy Start Date" show="true" primary-key="false" generator="assigned" key="policyStartDate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                            outputformat="yyyy-MM-dd"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn22_2">
+                                            <wm-form-field name="policyEndDate" displayname="Policy End Date" show="true" primary-key="false" generator="assigned" key="policyEndDate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                            outputformat="yyyy-MM-dd"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow14_2">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn23_2">
+                                            <wm-form-field name="businessByBusinessFkInsuranceCompany" displayname="Insurance Company" show="true" primary-key="false" generator="assigned" key="businessByBusinessFkInsuranceCompany" type="list" is-related="true"
+                                            readonly="false" required="false" widget="select" placeholder="Select value" displayexpression="businessName"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn24_1">
+                                            <wm-form-field name="businessByBusinessFkInsuranceBroker" displayname="Insurance Broker" show="true" primary-key="false" generator="assigned" key="businessByBusinessFkInsuranceBroker" type="list" is-related="true"
+                                            readonly="false" required="false" widget="select" placeholder="Select value" displayexpression="businessName"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow15_1">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn25">
+                                            <wm-form-field name="insurancepolicystatus" displayname="Policy Status" show="true" primary-key="false" generator="assigned" key="insurancepolicystatus" type="list" is-related="true" readonly="false" required="false"
+                                            widget="select" placeholder="Select value" displayexpression="shortNameEnglish"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-liveform>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-form-field name="licenseeFk" key="licenseeFk" displayname="Licensee Fk" show="false" type="integer" widget="number" inputtype="number" placeholder="Enter value" defaultvalue="bind:Variables.LicenseeData.firstRecord.pk"></wm-form-field>
+                <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel();Widgets.licenseeinsuranceDialog.close()" display-name="Cancel" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
+                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+            </wm-liveform>
+        </wm-dialog>
+    </wm-view>
+</wm-partial>

@@ -1,0 +1,128 @@
+@media only screen and (max-width: 480px) and (min-width: 299px) {
+    .app-header-actions .app-header-action .app-icon {
+        font-size: 1em;
+    }
+    .app-header-action {
+        padding: 0 !important;
+    }
+    .app-logo {
+        height: 30px !important;
+    }
+}
+@media only screen and (max-width: 800px) and (min-width: 481px) {
+    .app-header-actions .app-header-action .app-icon {
+        font-size: 1em;
+    }
+    .app-header-action {
+        padding: 0 !important;
+    }
+}
+.gray {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+/***text size specific function***/
+
+.text-style-S {
+    font-size: 1em;
+}
+.text-style-M {
+    font-size: 1.5em;
+}
+.text-style-L {
+    font-size: 2em;
+}
+/******header special classes*****/
+
+a.app-header-action .badge {
+    font-size: 10px;
+    background-color: red;
+}
+.icon-fixed {
+    float: right;
+    position: absolute;
+    right: 2px;
+    z-index: 2;
+}
+.panel.no-padding-form {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+.panel.no-padding-form .panel-body {
+    padding: 0;
+}
+.old-block {
+    padding: 1em;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    margin-bottom: 1em;
+}
+.new-block {
+    padding: 1em;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    margin-bottom: 1em;
+}
+/******************************************************************/
+
+.app-header-action.user-badge {
+    padding: 11px 15px !important;
+    border-left: 1px rgba(0, 0, 0, 0.1) solid !important;
+}
+.user-badge .app-username,
+.user-badge .app-userrole {
+    margin: 0 !important;
+}
+.user-badge .user-pic {
+    border: 2px rgba(192, 192, 192, 0.3);
+}
+/******************************************************************/
+
+.btn-action-top {
+    right: 1em;
+    position: absolute;
+    top: 1em;
+    z-index: 1;
+}
+.wm-app .h2 {
+    margin-top: 0;
+}
+/***************************History page styles****************************************/
+
+.history-panel ul li:first-child .timeline-media {
+    margin-top: 2em;
+}
+.history-panel ul li:last-child .timeline-media {
+    margin-bottom: 4em;
+}
+.history-panel ul li:last-child .timeline-media .timeline-container:after {
+    content: 'start';
+    width: auto;
+    padding: .05em 1em;
+    background: #c8c8c8;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: -2.5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .8em;
+    border-radius: 3px;
+    z-index: 2;
+}
+.timeline-icon {
+    position: absolute;
+    right: -1em;
+    top: 0;
+    border-radius: 50%;
+    z-index: 2;
+    text-align: center;
+    padding-top: 0.3em;
+    width: 30px;
+    height: 30px;
+}
+.timeline-icon .app-icon {
+    font-size: 1em !important;
+}
+.border-dashed {
+    border: 1px #ccc dashed !important;
+    box-shadow: none !important;
+}

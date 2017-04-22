@@ -1,0 +1,41 @@
+<wm-partial data-ng-controller="LanguagePageController" name="partial1">
+    <wm-grid editmode="inline" title="Language" dataset="bind:Variables.LSUCPersonlanguagecommunicationchannelData.dataSet" navigation="None" name="grid2" gridclass="table-striped" iconclass="wi wi-language" class="panel-default">
+        <wm-grid-column binding="personlanguage.language.shortNameEnglish" caption="Language" type="string" readonly="true" edit-widget-type="text" searchable="false" show="true"></wm-grid-column>
+        <wm-grid-column binding="communicationchannel.pk" caption="Channel" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish" show="true"
+        related-entity-name="Communicationchannel" readonly="false">
+            <wm-label caption="{{row.communicationchannel.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+        </wm-grid-column>
+        <wm-grid-column binding="proficiencylevel.pk" caption="Proficiency" type="integer" widget-type="label" primary-key="true" generator="identity" edit-widget-type="select" datafield="pk" displayfield="shortNameEnglish" show="true" related-entity-name="Proficiencylevel"
+        readonly="false">
+            <wm-label caption="{{row.proficiencylevel.shortNameEnglish}}" class="" data-ng-class=""></wm-label>
+        </wm-grid-column>
+        <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" edit-widget-type="text" sortable="false" searchable="false" show="true"></wm-grid-column>
+        <wm-grid-action key="customButton" display-name="Add Language" show="true" class="btn-link" iconclass="wi wi-plus" title="Add Language" action="customButtonAction($event)" accessroles="supervisor" shortcutkey="" disabled="false"
+        icon="wi wi-plus" position="header"></wm-grid-action>
+        <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" accessroles="supervisor" disabled="false"></wm-grid-row-action>
+        <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" accessroles="supervisor" disabled="false"></wm-grid-row-action>
+    </wm-grid>
+    <wm-liveform novalidate="false" errormessage="" title="Add Person language" iconclass="wi wi-globe" defaultmode="View" dataset="bind:Variables.LSUCPersonlanguageData.dataSet" captionalign="left" captionposition="top" name="liveform2" on-beforeservicecall="liveform2Beforeservicecall($event, $operation, $data)"
+    show="bind:Widgets.liveform2.isUpdateMode" on-success="Variables.LSUCPersonlanguagecommunicationchannelData.listRecords()">
+        <wm-layoutgrid columns="2" name="layoutgrid2">
+            <wm-gridrow name="gridrow3">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                    <wm-form-field name="language" displayname="Language" show="true" primary-key="false" generator="assigned" key="language" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value" displayexpression="shortNameEnglish"></wm-form-field>
+                </wm-gridcolumn>
+                <wm-gridcolumn name="gridcolumn1" columnwidth="6">
+                    <wm-form-field name="Proficiencylevel" key="Proficiencylevel" displayname="Proficiency" show="true" type="integer" widget="select" placeholder="Select value" dataset="bind:Variables.Proficiencylevel.dataSet" datafield="pk" displayfield="shortNameEnglish"></wm-form-field>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow1">
+                <wm-gridcolumn name="gridcolumn2" columnwidth="6">
+                    <wm-form-field name="Communicationchannel" key="Communicationchannel" displayname="Channel" show="true" type="integer" widget="select" dataset="bind:Variables.Communicationchannel.dataSet" datafield="pk" displayfield="shortNameEnglish"
+                    placeholder="Select value"></wm-form-field>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+        <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-info" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action>
+        <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action>
+        <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="saveAndView()" disabled="false" type="button" update-mode="true"></wm-form-action>
+    </wm-liveform>
+</wm-partial>

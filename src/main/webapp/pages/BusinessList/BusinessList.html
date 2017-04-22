@@ -1,0 +1,88 @@
+<wm-page data-ng-controller="BusinessListPageController" pagetitle="Business List" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn12">
+                        <wm-label padding="unset 0.5em" name="label1" class="h2" caption="Businesses"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn15" horizontalalign="right">
+                        <wm-button class="btn-primary" caption="Add Business" type="button" margin="unset 0.5em" name="addLicenseeBtn" on-click="Variables.goToPage_AddBusiness.invoke()" iconclass="fa fa-business fa-lg"></wm-button>
+                        <wm-switch datavalue="grid" name="viewSwitch" dataset="bind:Variables.dataViews.dataSet" displayfield="label" iconclass="icon" datafield="id" width="180" style="vertical-align: middle;"></wm-switch>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-livefilter title="Filter" dataset="bind:Variables.LSUCBusinessData.dataSet" captionalign="left" captionposition="top" name="businessFilter" collapsible="true" expanded="true" iconclass="wi wi-filter-list">
+                <wm-layoutgrid columns="2" name="layoutgrid2">
+                    <wm-gridrow name="gridrow5">
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn8">
+                            <wm-filter-field name="businessNumber" field="businessNumber" displayname="Business Number" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="businessNumber"
+                            placeholder="Enter value" matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn9">
+                            <wm-filter-field name="businesstype" field="businesstype" displayname="Business Type" widget="select" lookup-type="Businesstype" lookup-field="shortNameEnglish" is-related="true" related-entity-name="Businesstype" is-range="false"
+                            type="integer" is-primary-key="false" generator="assigned" show="true" key="businesstype" placeholder="Enter value" matchmode="start" datafield="key" displayfield="value"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn7">
+                            <wm-filter-field name="businesslegaltype" field="businesslegaltype" related-field="Businesslegaltype" widget="select" is-range="false" lookup-type="Businesslegaltype" lookup-field="shortNameEnglish" show="true" is-related="true"
+                            related-entity-name="Businesslegaltype" type="integer" is-primary-key="false" generator="assigned" matchmode="start" displayname="Business Legal Type" key="businesslegaltype" placeholder="Search"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn11">
+                            <wm-filter-field name="businessName" field="businessName" displayname="Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="businessName" placeholder="Enter value"
+                            matchmode="start"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow6">
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn10">
+                            <wm-filter-field name="numberOfEmployees" field="numberOfEmployees" related-field="Number Of Employees" widget="number" is-range="true" show="true" type="integer" is-primary-key="false" generator="assigned" matchmode="start" inputtype="number"
+                            displayname="Number of Employees" key="numberOfEmployees" placeholder="Enter Min" max-placeholder="Enter Max" width="110"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn name="gridcolumn2" columnwidth="3">
+                            <wm-filter-field name="custom" field="custom" displayname="City" show="true" type="string" widget="text" is-range="false" key="custom" placeholder="Enter value" disabled="false" matchmode="start" inputtype="text"></wm-filter-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="3" name="gridcolumn9_1">
+                            <wm-filter-field name="businessstatus" field="businessstatus" related-field="Businessstatus" widget="select" is-range="false" lookup-type="Businessstatus" lookup-field="shortNameEnglish" show="true" is-related="true" related-entity-name="Businessstatus"
+                            type="string" is-primary-key="false" generator="assigned" matchmode="start" inputtype="number" displayname="Businessstatus" key="businessstatus" placeholder="Enter value"></wm-filter-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="" title="Clear" action="clearFilter()" disabled="false" type="button"></wm-filter-action>
+                <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="" title="Filter" action="filter()" disabled="false" type="button"></wm-filter-action>
+            </wm-livefilter>
+            <wm-grid title="" dataset="bind:Widgets.businessFilter.result" navigation="Basic" name="businessTable" show="bind:Widgets.viewSwitch.datavalue === 'list'">
+                <wm-grid-column binding="businessNumber" caption="Business Number" type="string" widget-type="anchor" generator="assigned" edit-widget-type="text" show="true" readonly="false">
+                    <wm-anchor caption="{{row.getProperty('businessNumber')}}" on-click="Variables.goToPage_Business.invoke()" class="" data-ng-class=""></wm-anchor>
+                </wm-grid-column>
+                <wm-grid-column binding="businessName" caption="Name" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="businesstype.shortNameEnglish" caption="Business Type" type="string" primary-key="false" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Businesstype"></wm-grid-column>
+                <wm-grid-column binding="numberOfEmployees" caption="No. of Employees" type="integer" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                <wm-grid-column binding="businessstatus.shortNameEnglish" caption="Status" type="string" widget-type="icon" primary-key="false" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Businessstatus">
+                    <wm-icon caption="{{row.getProperty('businessstatus.shortNameEnglish')}}" iconclass="wi wi-star-border" iconposition="left" class="" data-ng-class=""></wm-icon>
+                </wm-grid-column>
+            </wm-grid>
+            <wm-livelist listclass="list-group" itemsperrow="xs-1 sm-2 md-3 lg-4" template="true" class="list-card" dataset="bind:Widgets.businessFilter.result" navigation="Basic" name="livelist1" show="bind:Widgets.viewSwitch.datavalue === 'grid'" navigationalign="right">
+                <wm-listtemplate layout="media" name="listtemplate1">
+                    <wm-card name="Contact Card">
+                        <wm-card-content horizontalalign="center" name="card_content1">
+                            <wm-icon class="pull-left" iconclass="bind:(item.isActive === &quot;Y&quot; )?&quot;wi wi-check-circle text-success&quot;:&quot;wi wi-lock text-danger&quot;" name="icon1" show="true" hint="Status"></wm-icon>
+                            <wm-label name="Name" class="h4 text-center" margin="unset unset 0em unset" caption="bind:Widgets.businessFilter.result.businessName" whitespace="nowrap"></wm-label>
+                            <wm-label name="buinessnumber" class="p text-muted  text-center" caption="bind:Widgets.businessFilter.result.businessNumber" whitespace="nowrap"></wm-label>
+                            <wm-label class="p text-muted  text-center" caption="bind:Widgets.businessFilter.result[$i].businesslegaltype.shortNameEnglish" whitespace="nowrap" name="businesscontactemail"></wm-label>
+                            <wm-label class="p text-muted  text-center" caption="bind:Widgets.businessFilter.result[$i].businesslegaltype.shortNameEnglish" whitespace="nowrap" name="businessType"></wm-label>
+                        </wm-card-content>
+                        <wm-card-footer horizontalalign="center" name="card_footer1">
+                            <wm-buttongroup class="btn-group-justified" horizontalalign="center" name="buttongroup1">
+                                <wm-anchor class="btn btn-transparent" caption="" iconclass="wi wi-mail fa-2x" name="anchor1" hyperlink="bind:&quot;mailto:&quot;+Widgets.businessFilter.result[$i].businessemailcontacts[$i].emailAddress"></wm-anchor>
+                                <wm-anchor class="btn btn-transparent" caption="" iconclass="wi wi-call fa-2x" name="anchor2"></wm-anchor>
+                                <wm-anchor class="btn btn-transparent" caption="" iconclass="wi wi-location-on fa-2x" name="anchor3"></wm-anchor>
+                            </wm-buttongroup>
+                        </wm-card-footer>
+                    </wm-card>
+                </wm-listtemplate>
+            </wm-livelist>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

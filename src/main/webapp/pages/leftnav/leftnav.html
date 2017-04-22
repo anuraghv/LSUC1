@@ -1,0 +1,21 @@
+<wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="leftnav">
+    <wm-container class="media" name="container1" padding="1.4em 1em 1em 1em" horizontalalign="center" bordercolor="#8b99a9" borderstyle="solid" borderwidth="0px 0px 1px 0px">
+        <wm-picture width="104" shape="circle" height="104" picturesource="http://dev.wavemaker.com/examples/salesrep/Keith-Neilson.png" name="picture1" backgroundcolor="#e8e8e8" pictureplaceholder="resources/images/imagelists/user.png"></wm-picture>
+        <wm-label caption="bind:Variables.LSUCPersonData.dataSet.data[$i].firstName + &quot; &quot; + Variables.LSUCPersonData.dataSet.data[$i].lastName" whitespace="nowrap" name="label1" class="h4" color="#ffffff" margin="unset unset 0px unset"
+        fontsize="1.4" fontunit="em"></wm-label>
+    </wm-container>
+    <wm-nav name="leftnavigation" type="pills" layout="stacked">
+        <wm-nav-item name="list_dashboard">
+            <wm-anchor caption="Licensee Details" name="licenseeLink" iconclass="wi wi-bar-graph fa-2x" on-click="Variables.goToPage_Licensee.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_order">
+            <wm-anchor caption="Personal Details" name="businessLink" iconclass="fa fa-user fa-2x" on-click="Variables.goToPage_LicenseeProfile.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item3">
+            <wm-anchor name="anchor3" iconclass="wi wi-history fa-2x" caption="History" on-click="Variables.goToPage_PersonHistory.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item4">
+            <wm-anchor name="anchor4" iconclass="wi wi-done fa-2x" caption="Approvals" on-click="Variables.goToPage_Approvals.invoke()" accessroles="supervisor"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>

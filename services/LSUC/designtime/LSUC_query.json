@@ -1,0 +1,279 @@
+{
+  "approveEditRecord" : {
+    "name" : "approveEditRecord",
+    "description" : "Approve the edit LicenseeClassPracticeGroup based on the request PK",
+    "version" : "V2",
+    "queryString" : "update Licenseeclasspracticegroup a\n\nset a.effectiveFromDate = (select b.newEffectiveFromDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.effectiveToDate = (select b.newEffectiveToDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.isPrimary = (select b.newIsPrimary from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.classPracticeGroupFk  = (select b.newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)\n\nwhere a.pk=(select b.licenseeclasspracticegroupPk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)",
+    "countQueryString" : "select count(*)  from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.effectiveToDate = (select b.newEffectiveToDate from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.isPrimary = (select b.newIsPrimary from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk),\n\na.classPracticeGroupFk  = (select b.newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)\n\nwhere a.pk=(select b.licenseeclasspracticegroupPk from LicenseeclasspracticegroupApprovals b where b.pk=:approvalPk)",
+    "nativeSql" : false,
+    "fetchCount" : true,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "approvalPk",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "25",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.lsuc.lsuc.models.query.ApproveEditRecordRequest",
+      "method" : "PUT"
+    },
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "approvedNewRecord" : {
+    "name" : "approvedNewRecord",
+    "description" : "Query to Insert a New record into LicenseeClassPracticeGroup on approval",
+    "version" : "V2",
+    "queryString" : "INSERT INTO Licenseeclasspracticegroup (licenseeFk,isPrimary,effectiveFromDate,effectiveToDate,classPracticeGroupFk)\n\nselect licenseeFk,newIsPrimary,newEffectiveFromDate,newEffectiveToDate,newClassPracticeGroupFk from LicenseeclasspracticegroupApprovals where pk =:primaryKey",
+    "countQueryString" : null,
+    "nativeSql" : false,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "primaryKey",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "11",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.lsuc.lsuc.models.query.ApprovedNewRecordRequest",
+      "method" : "POST"
+    },
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "expirationStatus" : {
+    "name" : "expirationStatus",
+    "description" : "Shows details of all Licensees which have LicenseeClassPracticeGroup(s) with Effective_To in the Input date range",
+    "version" : "V2",
+    "queryString" : "select DISTINCT l.LICENSEE_NUMBER,\n    p.FIRST_NAME||' '||p.LAST_NAME,\n    pa.ADDRESS_LINE_1||' '||pa.ADDRESS_LINE_2||' '||pa.CITY,\n    lt.SHORT_NAME_ENGLISH,l.LICENSE_DATE,\n    c.SHORT_NAME_ENGLISH as Class,\n    pg.SHORT_NAME_ENGLISH as PracticeGroup ,\n    lcpg.EFFECTIVE_FROM_DATE ,\n    lcpg.EFFECTIVE_TO_DATE\nfrom RMS.PERSON p,\n    RMS.PERSONADDRESS pa,\n    RMS.LICENSEE l,\n    RMS.LICENCETYPE lt,\n    RMS.LICENSEECLASSPRACTICEGROUP lcpg,\n    RMS.CLASSPRATICEGROUP cpg ,\n    RMS.CLASS c,\n    RMS.PRACTICEGROUP pg \nwhere p.PK = pa.PERSON_FK and \n    l.PERSON_FK = p.PK and\n    l.LICENCE_TYPE_FK = lt.PK and \n    lcpg.LICENSEE_FK = l.PK and \n    lcpg.CLASS_PRACTICE_GROUP_FK = cpg.PK and \n    cpg.CLASS_FK = c.PK and \n    cpg.PRACTICE_GROUP_FK = pg.PK",
+    "countQueryString" : "select count(*) from (select DISTINCT l.LICENSEE_NUMBER,\n    p.FIRST_NAME||' '||p.LAST_NAME,\n    pa.ADDRESS_LINE_1||' '||pa.ADDRESS_LINE_2||' '||pa.CITY,\n    lt.SHORT_NAME_ENGLISH,l.LICENSE_DATE,\n    c.SHORT_NAME_ENGLISH as Class,\n    pg.SHORT_NAME_ENGLISH as PracticeGroup ,\n    lcpg.EFFECTIVE_FROM_DATE ,\n    lcpg.EFFECTIVE_TO_DATE\nfrom RMS.PERSON p,\n    RMS.PERSONADDRESS pa,\n    RMS.LICENSEE l,\n    RMS.LICENCETYPE lt,\n    RMS.LICENSEECLASSPRACTICEGROUP lcpg,\n    RMS.CLASSPRATICEGROUP cpg ,\n    RMS.CLASS c,\n    RMS.PRACTICEGROUP pg \nwhere p.PK = pa.PERSON_FK and \n    l.PERSON_FK = p.PK and\n    l.LICENCE_TYPE_FK = lt.PK and \n    lcpg.LICENSEE_FK = l.PK and \n    lcpg.CLASS_PRACTICE_GROUP_FK = cpg.PK and \n    cpg.CLASS_FK = c.PK and \n    cpg.PRACTICE_GROUP_FK = pg.PK) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.lsuc.lsuc.models.query.ExpirationStatusResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "LICENSEE_NUMBER",
+        "fieldName" : "licenseeNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "2",
+        "fieldName" : "col2",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "3",
+        "fieldName" : "col3",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "SHORT_NAME_ENGLISH",
+        "fieldName" : "shortNameEnglish",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LICENSE_DATE",
+        "fieldName" : "licenseDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS",
+        "fieldName" : "class_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "PRACTICEGROUP",
+        "fieldName" : "practicegroup",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "EFFECTIVE_FROM_DATE",
+        "fieldName" : "effectiveFromDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "EFFECTIVE_TO_DATE",
+        "fieldName" : "effectiveToDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getStatusChangeDetails" : {
+    "name" : "getStatusChangeDetails",
+    "description" : "get Status Change Details Based on PersonID",
+    "version" : "V2",
+    "queryString" : "select classpraticegroup.classEntity.shortNameEnglish as Type,effectiveFromDate as EffectiveDate,effectiveToDate as EffectiveTo,CONCAT(classpraticegroup.practicegroup.code,' - ',classpraticegroup.practicegroup.shortNameEnglish) as PracticeGroup,isPrimary as isPrimary,revinfo.revtstmp as revtstmp from LicenseeclasspracticegroupAud where (:personID is null or licensee.personFk=:personID )",
+    "countQueryString" : "select count(*)  from LicenseeclasspracticegroupAud where (:personID is null or licensee.personFk=:personID )",
+    "nativeSql" : false,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "personID",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1",
+      "required" : false
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.lsuc.lsuc.models.query.GetStatusChangeDetailsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "Type",
+        "fieldName" : "type",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "EffectiveDate",
+        "fieldName" : "effectiveDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.util.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "EffectiveTo",
+        "fieldName" : "effectiveTo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.util.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "PracticeGroup",
+        "fieldName" : "practiceGroup",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "isPrimary",
+        "fieldName" : "isPrimary",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "revtstmp",
+        "fieldName" : "revtstmp",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "updateStatus" : {
+    "name" : "updateStatus",
+    "description" : "Update the Status after approving/rejecting a request",
+    "version" : "V2",
+    "queryString" : "update RMS.LICENSEECLASSPRACTICEGROUP_APPROVALS set STATUS=:status where PK=:pk",
+    "countQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "status",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "TEST",
+      "required" : true
+    }, {
+      "name" : "pk",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.lsuc.lsuc.models.query.UpdateStatusRequest",
+      "method" : "PUT"
+    },
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  }
+}

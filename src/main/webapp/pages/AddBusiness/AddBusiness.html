@@ -1,0 +1,119 @@
+<wm-page data-ng-controller="AddBusinessPageController" pagetitle="Add Business" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-label padding="unset 0.5em" name="label1" class="h2" caption="Add Business"></wm-label>
+            <wm-liveform novalidate="false" errormessage="" title="Business Details" iconclass="" defaultmode="Edit" dataset="bind:Variables.LSUCBusinessData.dataSet" captionalign="left" captionposition="top" name="businessForm" on-beforeservicecall="businessFormBeforeservicecall($event, $operation, $data)">
+                <wm-layoutgrid columns="3" name="layoutgrid1">
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn2">
+                            <wm-form-field name="businessNumber" displayname="Business Number" show="true" primary-key="false" generator="assigned" key="businessNumber" type="string" readonly="false" required="true" widget="text" maxchars="10" inputtype="text"
+                            placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                            <wm-form-field name="businessName" displayname="Business Name" show="true" primary-key="false" generator="assigned" key="businessName" type="string" readonly="false" required="true" widget="text" maxchars="100" inputtype="text"
+                            placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                            <wm-form-field name="alsoKnownAs" displayname="Also Known As" show="true" primary-key="false" generator="assigned" key="alsoKnownAs" type="string" readonly="false" required="false" widget="text" maxchars="100" inputtype="text"
+                            placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                            <wm-form-field name="businessstatus" displayname="Business Status" show="true" primary-key="false" generator="assigned" key="businessstatus" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                            displayexpression="shortNameEnglish"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                            <wm-form-field name="businesstype" displayname="Business Type" show="true" primary-key="false" generator="assigned" key="businesstype" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                            displayexpression="shortNameEnglish"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                            <wm-form-field name="businesslegaltype" displayname="Business Legal Type" show="true" primary-key="false" generator="assigned" key="businesslegaltype" type="list" is-related="true" readonly="false" required="true" widget="select"
+                            placeholder="Select value" displayexpression="code + '  - ' + shortNameEnglish"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow3">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                            <wm-form-field name="numberOfEmployees" displayname="Number Of Employees" show="true" primary-key="false" generator="assigned" key="numberOfEmployees" type="integer" readonly="false" required="false" step="0" widget="number" inputtype="number"
+                            placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-liveform novalidate="false" errormessage="" title="Address" iconclass="" defaultmode="Edit" dataset="bind:Variables.LSUCBusinessaddressData.dataSet" captionalign="left" captionposition="top" name="addressForm" margin="2em unset unset unset">
+                    <wm-layoutgrid columns="3" name="layoutgrid2">
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn12">
+                                <wm-form-field name="addressLine1" displayname="Address Line1" show="true" primary-key="false" generator="assigned" key="addressLine1" type="string" readonly="false" required="true" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn11">
+                                <wm-form-field name="addressLine2" displayname="Address Line2" show="true" primary-key="false" generator="assigned" key="addressLine2" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn10">
+                                <wm-form-field name="addresstype" displayname="Address Type" show="true" primary-key="false" generator="assigned" key="addresstype" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                displayexpression="code + ' -  ' + shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow5">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn13">
+                                <wm-form-field name="addressLine3" displayname="Address Line3" show="true" primary-key="false" generator="assigned" key="addressLine3" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                <wm-form-field name="addressLine4" displayname="Address Line4" show="true" primary-key="false" generator="assigned" key="addressLine4" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn15">
+                                <wm-form-field name="isDisplayedOnDirectory" displayname="Is Displayed On Directory" show="true" primary-key="false" generator="assigned" key="isDisplayedOnDirectory" type="character" readonly="false" required="false" widget="text"
+                                maxchars="1" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn16">
+                                <wm-form-field name="addressLine5" displayname="Address Line5" show="true" primary-key="false" generator="assigned" key="addressLine5" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn17">
+                                <wm-form-field name="addressLine6" displayname="Address Line6" show="true" primary-key="false" generator="assigned" key="addressLine6" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text"
+                                placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow7">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                                <wm-form-field name="city" displayname="City" show="true" primary-key="false" generator="assigned" key="city" type="string" readonly="false" required="true" widget="text" maxchars="50" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                                <wm-form-field name="province" displayname="Province" show="true" primary-key="false" generator="assigned" key="province" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                                displayexpression="shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow9">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn24">
+                                <wm-form-field name="geographicarea" displayname="Geographical Area" show="true" primary-key="false" generator="assigned" key="geographicarea" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                                displayexpression="shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn25">
+                                <wm-form-field name="postalCode" displayname="Postal Code" show="true" primary-key="false" generator="assigned" key="postalCode" type="string" readonly="false" required="true" widget="text" maxchars="10" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow8">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                                <wm-form-field name="country" displayname="Country" show="true" primary-key="false" generator="assigned" key="country" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"
+                                displayexpression="shortNameEnglish"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number"></wm-form-field>
+                </wm-liveform>
+                <wm-form-action key="save" display-name="Save And Continue" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                <wm-form-field name="pk" displayname="Pk" show="false" primary-key="true" generator="identity" key="pk" type="integer" readonly="true" required="true" step="0" widget="number"></wm-form-field>
+            </wm-liveform>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>
